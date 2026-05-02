@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
@@ -23,29 +24,29 @@ class _TopFooter extends StatelessWidget {
     return Container(
       width: double.infinity,
       color: const Color(0xFFEBE6C2),
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(24.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Center(
             child: Image.asset(
               'assets/logo.png',
-              height: 150,
-              errorBuilder: (c, e, s) => Container(height: 150, width: 150, color: Colors.grey),
+              height: 150.h,
+              errorBuilder: (c, e, s) => Container(height: 150.h, width: 150.w, color: Colors.grey),
             ),
           ),
-          const SizedBox(height: 16),
-          const Text(
+          SizedBox(height: 16.h),
+          Text(
             "THE FIRST DESTINATION FOR ALL\n✨ WOMEN'S DETAILS",
-            style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 13, letterSpacing: 1),
+            style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 13.sp, letterSpacing: 1),
           ),
-          const SizedBox(height: 24),
-          _InfoRow('assets/footer-1.jpg', 'COMMERCIAL REGISTRATION', '1010166254'),
-          const SizedBox(height: 16),
-          _InfoRow('assets/footer-2.jpg', 'TAX NUMBER', '300076485500003'),
-          const SizedBox(height: 32),
-          const Text('Important Links', style: TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 16),
+          SizedBox(height: 24.h),
+          const _InfoRow('assets/footer-1.jpg', 'COMMERCIAL REGISTRATION', '1010166254'),
+          SizedBox(height: 16.h),
+          const _InfoRow('assets/footer-2.jpg', 'TAX NUMBER', '300076485500003'),
+          SizedBox(height: 32.h),
+          Text('Important Links', style: TextStyle(color: textColor, fontSize: 20.sp, fontWeight: FontWeight.bold)),
+          SizedBox(height: 16.h),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -73,33 +74,33 @@ class _TopFooter extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 32),
-          const Center(child: Text('Contact Us', style: TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.bold))),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              _ContactButton('Email', Icons.email),
-              SizedBox(width: 8),
-              _ContactButton('Phone', Icons.phone),
-              SizedBox(width: 8),
-              _ContactButton('WhatsApp', Icons.chat),
-            ],
-          ),
-          const SizedBox(height: 32),
-          const Center(child: Text('Download Mobile App', style: TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.bold))),
-          const SizedBox(height: 16),
+          SizedBox(height: 32.h),
+          Center(child: Text('Contact Us', style: TextStyle(color: textColor, fontSize: 20.sp, fontWeight: FontWeight.bold))),
+          SizedBox(height: 16.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network('https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg', height: 40, errorBuilder: (c, e, s) => const SizedBox(height: 40)),
-              const SizedBox(width: 8),
-              Image.network('https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg', height: 40, errorBuilder: (c, e, s) => const SizedBox(height: 40)),
+              const _ContactButton('Email', Icons.email),
+              SizedBox(width: 8.w),
+              const _ContactButton('Phone', Icons.phone),
+              SizedBox(width: 8.w),
+              const _ContactButton('WhatsApp', Icons.chat),
             ],
           ),
-          const SizedBox(height: 32),
-          Center(child: Image.asset('assets/sbc.jpg', height: 60, errorBuilder: (c, e, s) => Container(height: 60, width: 60, color: Colors.grey))),
-          const SizedBox(height: 8),
+          SizedBox(height: 32.h),
+          Center(child: Text('Download Mobile App', style: TextStyle(color: textColor, fontSize: 18.sp, fontWeight: FontWeight.bold))),
+          SizedBox(height: 16.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network('https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg', height: 40.h, errorBuilder: (c, e, s) => SizedBox(height: 40.h)),
+              SizedBox(width: 8.w),
+              Image.network('https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg', height: 40.h, errorBuilder: (c, e, s) => SizedBox(height: 40.h)),
+            ],
+          ),
+          SizedBox(height: 32.h),
+          Center(child: Image.asset('assets/sbc.jpg', height: 60.h, errorBuilder: (c, e, s) => Container(height: 60.h, width: 60.w, color: Colors.grey))),
+          SizedBox(height: 8.h),
           const Center(child: Text('Certified on the Business Platform', style: TextStyle(color: textColor, fontWeight: FontWeight.bold))),
         ],
       ),
@@ -118,14 +119,14 @@ class _InfoRow extends StatelessWidget {
     const textColor = Color(0xFF003829);
     return Row(
       children: [
-        Image.asset(imagePath, width: 50, height: 50, errorBuilder: (c, e, s) => Container(width: 50, height: 50, color: Colors.grey)),
-        const SizedBox(width: 12),
+        Image.asset(imagePath, width: 50.w, height: 50.h, errorBuilder: (c, e, s) => Container(width: 50.w, height: 50.h, color: Colors.grey)),
+        SizedBox(width: 12.w),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: const TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 12, letterSpacing: 0.5)),
-            const SizedBox(height: 4),
-            Text(value, style: const TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 14)),
+            Text(title, style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 12.sp, letterSpacing: 0.5)),
+            SizedBox(height: 4.h),
+            Text(value, style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 14.sp)),
           ],
         ),
       ],
@@ -140,7 +141,7 @@ class _FooterLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
+      padding: EdgeInsets.only(bottom: 16.h),
       child: Text(text, style: const TextStyle(color: Color(0xFF003829), fontWeight: FontWeight.bold)),
     );
   }
@@ -154,16 +155,16 @@ class _ContactButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0xFF003829)),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.r),
       ),
       child: Row(
         children: [
           Text(title, style: const TextStyle(color: Color(0xFF003829), fontWeight: FontWeight.bold)),
-          const SizedBox(width: 8),
-          Icon(icon, color: const Color(0xFF003829), size: 16),
+          SizedBox(width: 8.w),
+          Icon(icon, color: const Color(0xFF003829), size: 16.sp),
         ],
       ),
     );
@@ -178,7 +179,7 @@ class _BottomFooter extends StatelessWidget {
     return Container(
       width: double.infinity,
       color: const Color(0xFF223A31),
-      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+      padding: EdgeInsets.symmetric(vertical: 32.h, horizontal: 16.w),
       child: Column(
         children: [
           const Text.rich(
@@ -193,10 +194,10 @@ class _BottomFooter extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: 24.h),
           Wrap(
-            spacing: 8,
-            runSpacing: 8,
+            spacing: 8.w,
+            runSpacing: 8.h,
             alignment: WrapAlignment.center,
             children: const [
               _PaymentBadge('assets/mada_mini.jpg'),
@@ -207,10 +208,10 @@ class _BottomFooter extends StatelessWidget {
               _PaymentBadge('assets/mispay_installment_mini.jpg'),
             ],
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: 24.h),
           Wrap(
-            spacing: 12,
-            runSpacing: 12,
+            spacing: 12.w,
+            runSpacing: 12.h,
             alignment: WrapAlignment.center,
             children: const [
               _SocialIcon(Icons.close),
@@ -220,7 +221,7 @@ class _BottomFooter extends StatelessWidget {
               _SocialIcon(Icons.facebook),
             ],
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: 24.h),
         ],
       ),
     );
@@ -234,11 +235,11 @@ class _PaymentBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 45,
-      height: 30,
+      width: 45.w,
+      height: 30.h,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(4.r),
       ),
       clipBehavior: Clip.antiAlias,
       child: Image.asset(imagePath, fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox()),
@@ -253,14 +254,14 @@ class _SocialIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 40,
-      height: 40,
+      width: 40.w,
+      height: 40.h,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.transparent,
-        border: Border.all(color: Colors.orangeAccent, width: 1),
+        border: Border.all(color: Colors.orangeAccent, width: 1.w),
       ),
-      child: Icon(icon, color: Colors.white, size: 20),
+      child: Icon(icon, color: Colors.white, size: 20.sp),
     );
   }
 }
