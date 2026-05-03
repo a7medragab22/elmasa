@@ -1,4 +1,5 @@
 import 'package:elmasa/core/custom_text_field.dart';
+import 'package:elmasa/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatelessWidget {
@@ -27,6 +28,15 @@ class SignUpView extends StatelessWidget {
                 icon: Icon(Icons.visibility),
               ),
             ),
+
+            SizedBox(height: 45),
+            CustomButton(buttonName: 'Register', onPressed: () {}),
+            SizedBox(height: 20),
+
+            // Align(
+            //   alignment: Alignment.topRight,
+            //   child: Text('forget password ?'),
+            // ),
           ],
         ),
       ),
