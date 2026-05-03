@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:elmasa/core/functions/banner_card.dart';
 import 'package:elmasa/core/functions/category_card.dart';
 import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/features/auth/presentation/custom_app_bar.dart';
+import 'package:elmasa/features/home/presentation/pages/widgets/custom_app_bar.dart';
 import 'package:elmasa/features/home/presentation/pages/widgets/custom_drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/widgets/footer_widget.dart';
+import '../../../../../core/widgets/footer_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
