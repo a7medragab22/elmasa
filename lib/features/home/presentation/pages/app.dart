@@ -1,8 +1,8 @@
 import 'package:elmasa/core/functions/on_generate_routs.dart';
+import 'package:elmasa/core/themes/app_colors.dart';
+import 'package:elmasa/features/home/presentation/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'features/home/presentation/pages/home_view.dart';
-import 'core/app_colors.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
