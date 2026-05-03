@@ -1,3 +1,4 @@
+import 'package:elmasa/core/functions/on_generate_routs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'features/home/presentation/pages/home_view.dart';
@@ -9,11 +10,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812), // Standard iPhone X design size, adjust if needed
+      designSize: const Size(
+        375,
+        812,
+      ), // Standard iPhone X design size, adjust if needed
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
         return MaterialApp(
+          onGenerateRoute: onGenerateRoutes,
+          initialRoute: HomeView.routeName,
           title: 'Elmasa',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
