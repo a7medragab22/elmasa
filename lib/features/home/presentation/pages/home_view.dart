@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/app_colors.dart';
 import '../../../../core/widgets/footer_widget.dart';
 
 class HomeView extends StatefulWidget {
