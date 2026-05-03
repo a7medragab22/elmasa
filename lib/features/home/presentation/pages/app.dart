@@ -1,11 +1,8 @@
+import 'package:elmasa/core/functions/on_generate_routs.dart';
 import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/features/home/presentation/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-void main() {
-  runApp(const MyApp());
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,6 +18,8 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return MaterialApp(
+          onGenerateRoute: onGenerateRoutes,
+          initialRoute: HomeView.routeName,
           title: 'Elmasa',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
