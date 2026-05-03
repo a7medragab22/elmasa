@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../app_colors.dart';
-import '../widgets/footer_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/app_colors.dart';
+import '../../../../core/widgets/footer_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -49,13 +50,13 @@ class _HomeViewState extends State<HomeView> {
         padding: EdgeInsets.zero,
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // Slider Banners
           SizedBox(
-            height: 180,
+            height: 180.h,
             child: PageView(
               controller: _pageController,
               onPageChanged: (index) {
@@ -70,15 +71,15 @@ class _HomeViewState extends State<HomeView> {
               ],
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8.h),
           // Dots Indicator
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(3, (index) {
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                width: 8,
-                height: 8,
+                margin: EdgeInsets.symmetric(horizontal: 4.w),
+                width: 8.w,
+                height: 8.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: _currentBannerIndex == index ? Colors.black87 : Colors.grey.shade400,
@@ -86,7 +87,7 @@ class _HomeViewState extends State<HomeView> {
               );
             }),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           // Categories
           categoryCard('Abayas', ['Casual', 'Evening', 'Umrah'], 'assets/abayaa.jpg'),
           categoryCard('Fabrics', ['Cotton', 'Silk', 'Wool'], 'assets/clothes.jpg'),
@@ -97,7 +98,7 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           const AppFooter(),
-          const SizedBox(height: 80), // for bottom nav
+          SizedBox(height: 80.h), // for bottom nav
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -125,7 +126,7 @@ class _HomeViewState extends State<HomeView> {
   Widget bannerCard(String image, String title, String subtitle) {
     return Card(
       clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -134,14 +135,14 @@ class _HomeViewState extends State<HomeView> {
               : Image.asset(image, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(color: Colors.grey)),
           Container(color: Colors.black26),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.w),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 4),
-                Text(subtitle, style: const TextStyle(color: Colors.white, fontSize: 16)),
+                Text(title, style: TextStyle(color: Colors.white, fontSize: 24.sp, fontWeight: FontWeight.bold)),
+                SizedBox(height: 4.h),
+                Text(subtitle, style: TextStyle(color: Colors.white, fontSize: 16.sp)),
               ],
             ),
           ),
@@ -152,26 +153,26 @@ class _HomeViewState extends State<HomeView> {
 
   Widget categoryCard(String title, List<String> tags, String image) {
     return Card(
-      margin: const EdgeInsets.only(bottom: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      margin: EdgeInsets.only(bottom: 16.h),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           image.startsWith('http')
-              ? Image.network(image, height: 150, width: double.infinity, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(height: 150, color: Colors.grey))
-              : Image.asset(image, height: 150, width: double.infinity, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(height: 150, color: Colors.grey)),
+              ? Image.network(image, height: 150.h, width: double.infinity, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(height: 150.h, color: Colors.grey))
+              : Image.asset(image, height: 150.h, width: double.infinity, fit: BoxFit.cover, errorBuilder: (c, e, s) => Container(height: 150.h, color: Colors.grey)),
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            padding: EdgeInsets.all(8.w),
+            child: Text(title, style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold)),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
+            padding: EdgeInsets.symmetric(horizontal: 8.w),
             child: Wrap(
-              spacing: 8,
+              spacing: 8.w,
               children: tags.map((t) => Chip(label: Text(t))).toList(),
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8.h),
         ],
       ),
     );
