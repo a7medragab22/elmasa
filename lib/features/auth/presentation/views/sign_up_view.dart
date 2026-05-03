@@ -1,5 +1,5 @@
-import 'package:elmasa/core/custom_text_field.dart';
-import 'package:elmasa/core/widgets/custom_button.dart';
+import 'package:elmasa/core/utils/widgets/custom_text_field.dart';
+import 'package:elmasa/core/utils/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatelessWidget {

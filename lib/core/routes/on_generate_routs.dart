@@ -1,3 +1,4 @@
+import 'package:elmasa/features/auth/presentation/views/login_view.dart';
 import 'package:elmasa/features/auth/presentation/views/sign_up_view.dart';
 import 'package:elmasa/features/home/presentation/pages/home_view.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings setting) {
       return MaterialPageRoute(builder: (context) => const HomeView());
     case SignUpView.routeName:
       return MaterialPageRoute(builder: (context) => const SignUpView());
+    case LoginView.routeName:
+      return MaterialPageRoute(builder: (context) => const LoginView());
 
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
