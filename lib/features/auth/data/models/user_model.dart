@@ -1,4 +1,5 @@
 import 'package:elmasa/features/auth/domain/entitis/user_entity.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class UserModel {
   final String name;
@@ -13,6 +14,17 @@ class UserModel {
       email: userEnity.email,
       uid: userEnity.uid,
     );
+  }
+  factory UserModel.fromUser(User user) {
+    return UserModel(
+      name: user.displayName ?? '',
+      email: user.email ?? '',
+      uid: user.uid,
+    );
+  }
+
+  UserEntity toEntity() {
+    return UserEntity(name: name, email: email, uid: uid);
   }
 
   Map<String, dynamic> toJson() {
