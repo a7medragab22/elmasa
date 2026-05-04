@@ -9,7 +9,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      title: CustomTextField(hintText: 'snndn'),
+      title: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15.0),
+        child: TextField(
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.grey),
+            ),
+
+            hintText: 'Search...',
+          ),
+          onChanged: (value) {
+            // هنا تعمل الفلترة
+            print(value);
+          },
+        ),
+      ),
 
       actions: [
         IconButton(
