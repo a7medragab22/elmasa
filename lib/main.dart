@@ -1,12 +1,12 @@
 import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/features/home/presentation/pages/home_view.dart';
+import 'package:elmasa/core/routes/app_routes.dart';
+import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
             useMaterial3: true,
           ),
-          home: child,
+          initialRoute: AppRouteNames.home,
+          onGenerateRoute: AppRoutes.generateRoute,
         );
       },
-      child: const HomeView(),
     );
   }
 }

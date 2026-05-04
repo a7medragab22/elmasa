@@ -3,6 +3,8 @@ import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/footer_widget.dart';
+import '../../../../core/widgets/main_app_bar.dart';
+import '../../../../core/widgets/main_bottom_nav_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -45,6 +47,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
+      appBar: const MainAppBar(),
       
       body: ListView(
         padding: EdgeInsets.zero,
@@ -107,19 +110,7 @@ class _HomeViewState extends State<HomeView> {
         onPressed: () {},
         child: const Icon(Icons.chat),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: Colors.grey,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: 'Categories'),
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Offers'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble_outline), label: 'Support'),
-        ],
-      ),
+      bottomNavigationBar: const MainBottomNavBar(),
     );
   }
 
