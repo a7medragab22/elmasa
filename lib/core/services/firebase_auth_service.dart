@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:elmasa/core/utils/widgets/show_snack_bar_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -20,6 +22,27 @@ class FirebaseAuthService {
       }
     } catch (e) {
       throw Exception(e.toString());
+    }
+  }
+
+  Future<User> signinUserWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        throw Exception('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        throw Exception('Wrong password provided for that user.');
+      } else {
+        throw Exception('oops, there was an error please try again');
+      }
     }
   }
 }
