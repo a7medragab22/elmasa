@@ -1,9 +1,9 @@
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:elmasa/core/widgets/main_app_bar.dart';
-import 'package:elmasa/core/widgets/footer_widget.dart';
-import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/core/widgets/main_bottom_nav_bar.dart';
 
 class ReturnPolicyView extends StatelessWidget {
   const ReturnPolicyView({super.key});
@@ -52,7 +52,7 @@ class ReturnPolicyView extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 24.h),
-                
+
                 // Title
                 Center(
                   child: Text(
@@ -90,7 +90,11 @@ class ReturnPolicyView extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 8.h),
-                        Icon(Icons.arrow_forward, color: const Color(0xFFD09C72), size: 24.sp),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: const Color(0xFFD09C72),
+                          size: 24.sp,
+                        ),
                       ],
                     ),
                   ),
@@ -107,7 +111,11 @@ class ReturnPolicyView extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.info, color: const Color(0xFF00566C), size: 20.sp),
+                      Icon(
+                        Icons.info,
+                        color: const Color(0xFF00566C),
+                        size: 20.sp,
+                      ),
                       SizedBox(width: 8.w),
                       Expanded(
                         child: Text(
@@ -125,13 +133,25 @@ class ReturnPolicyView extends StatelessWidget {
                 SizedBox(height: 24.h),
 
                 // Checklist
-                _buildChecklistItem('When returning a product or the entire order, a return fee of 29 SAR will be deducted from the refund amount.'),
-                _buildChecklistItem('You can return the product within 7 days of receipt.'),
-                _buildChecklistItem('No return or exchange for online orders at branches.'),
-                _buildChecklistItem('Exchange of products purchased from the online store is not allowed.'),
-                _buildChecklistItem('The product must be in its original condition without damage.'),
-                _buildChecklistItem('The return policy applies to all products except accessories.'),
-                
+                _buildChecklistItem(
+                  'When returning a product or the entire order, a return fee of 29 SAR will be deducted from the refund amount.',
+                ),
+                _buildChecklistItem(
+                  'You can return the product within 7 days of receipt.',
+                ),
+                _buildChecklistItem(
+                  'No return or exchange for online orders at branches.',
+                ),
+                _buildChecklistItem(
+                  'Exchange of products purchased from the online store is not allowed.',
+                ),
+                _buildChecklistItem(
+                  'The product must be in its original condition without damage.',
+                ),
+                _buildChecklistItem(
+                  'The return policy applies to all products except accessories.',
+                ),
+
                 SizedBox(height: 32.h),
 
                 // Promotional Offer Return Terms
@@ -144,10 +164,7 @@ class ReturnPolicyView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8.h),
-                Container(
-                  height: 1.h,
-                  color: Colors.grey.shade300,
-                ),
+                Container(height: 1.h, color: Colors.grey.shade300),
                 SizedBox(height: 16.h),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,7 +182,7 @@ class ReturnPolicyView extends StatelessWidget {
                     ),
                   ],
                 ),
-                
+
                 SizedBox(height: 32.h),
 
                 // Return Steps
@@ -178,17 +195,17 @@ class ReturnPolicyView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8.h),
-                Container(
-                  height: 1.h,
-                  color: Colors.grey.shade300,
-                ),
+                Container(height: 1.h, color: Colors.grey.shade300),
                 SizedBox(height: 16.h),
-                
+
                 _buildStepCard(Icons.person, '1. Go to My Orders panel'),
                 SizedBox(height: 16.h),
                 _buildStepCard(Icons.description, '2. Create Return Form'),
                 SizedBox(height: 16.h),
-                _buildStepCard(Icons.email, '3. The policy will be sent to your email within 48 hours'),
+                _buildStepCard(
+                  Icons.email,
+                  '3. The policy will be sent to your email within 48 hours',
+                ),
 
                 SizedBox(height: 32.h),
 
@@ -204,7 +221,11 @@ class ReturnPolicyView extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.warning_amber_rounded, color: const Color(0xFF5A4A11), size: 24.sp),
+                          Icon(
+                            Icons.warning_amber_rounded,
+                            color: const Color(0xFF5A4A11),
+                            size: 24.sp,
+                          ),
                           SizedBox(width: 8.w),
                           Text(
                             'Notes',
@@ -219,9 +240,13 @@ class ReturnPolicyView extends StatelessWidget {
                       SizedBox(height: 8.h),
                       Divider(color: const Color(0xFFDAC792), thickness: 1.h),
                       SizedBox(height: 8.h),
-                      _buildNoteItem('The order cannot be cancelled after confirmation.'),
+                      _buildNoteItem(
+                        'The order cannot be cancelled after confirmation.',
+                      ),
                       SizedBox(height: 8.h),
-                      _buildNoteItem('The amount will be refunded within 14 working days.'),
+                      _buildNoteItem(
+                        'The amount will be refunded within 14 working days.',
+                      ),
                     ],
                   ),
                 ),
@@ -251,7 +276,11 @@ class ReturnPolicyView extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(Icons.check_circle, color: const Color(0xFF1AA96C), size: 20.sp),
+              Icon(
+                Icons.check_circle,
+                color: const Color(0xFF1AA96C),
+                size: 20.sp,
+              ),
               SizedBox(width: 12.w),
               Expanded(
                 child: Text(

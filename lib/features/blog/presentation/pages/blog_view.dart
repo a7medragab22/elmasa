@@ -1,9 +1,9 @@
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:elmasa/core/widgets/main_app_bar.dart';
-import 'package:elmasa/core/widgets/footer_widget.dart';
-import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/core/widgets/main_bottom_nav_bar.dart';
 
 class BlogView extends StatelessWidget {
   const BlogView({super.key});
@@ -66,7 +66,9 @@ class BlogView extends StatelessWidget {
                       Text(
                         'No blog posts found at the moment',
                         style: TextStyle(
-                          color: const Color(0xFF4A6877), // Based on the screenshot's text color
+                          color: const Color(
+                            0xFF4A6877,
+                          ), // Based on the screenshot's text color
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
                         ),

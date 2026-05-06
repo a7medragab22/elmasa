@@ -1,9 +1,9 @@
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:elmasa/core/widgets/main_app_bar.dart';
-import 'package:elmasa/core/widgets/footer_widget.dart';
-import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/core/widgets/main_bottom_nav_bar.dart';
 
 class ContactUsView extends StatelessWidget {
   const ContactUsView({super.key});
@@ -126,7 +126,7 @@ class ContactUsView extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 32.h),
-                      
+
                       _buildInputField('Name', 'Enter your name'),
                       SizedBox(height: 24.h),
                       _buildInputField('Email', 'example@email.com'),
@@ -135,9 +135,12 @@ class ContactUsView extends StatelessWidget {
                       SizedBox(height: 24.h),
                       _buildDropdownField('Message Type', 'Select Type'),
                       SizedBox(height: 24.h),
-                      _buildTextAreaField('Message', 'Write your message here...'),
+                      _buildTextAreaField(
+                        'Message',
+                        'Write your message here...',
+                      ),
                       SizedBox(height: 32.h),
-                      
+
                       SizedBox(
                         width: double.infinity,
                         height: 56.h,
@@ -302,7 +305,10 @@ class ContactUsView extends StatelessWidget {
               borderRadius: BorderRadius.circular(8.r),
               borderSide: BorderSide.none,
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 16.h,
+            ),
           ),
         ),
       ],
@@ -332,7 +338,10 @@ class ContactUsView extends StatelessWidget {
               borderRadius: BorderRadius.circular(8.r),
               borderSide: BorderSide.none,
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 16.h,
+            ),
           ),
           items: const [
             DropdownMenuItem(value: 'Select Type', child: Text('Select Type')),
@@ -370,7 +379,10 @@ class ContactUsView extends StatelessWidget {
               borderRadius: BorderRadius.circular(8.r),
               borderSide: BorderSide.none,
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 16.h,
+            ),
           ),
         ),
       ],
