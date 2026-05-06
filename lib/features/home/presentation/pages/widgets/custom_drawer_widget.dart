@@ -1,4 +1,5 @@
-import 'package:elmasa/features/auth/presentation/views/login_view.dart';
+import 'package:elmasa/core/routes/app_routes_name.dart';
+import 'package:elmasa/features/auth/presentation/views/signin_view.dart';
 import 'package:elmasa/features/auth/presentation/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,7 @@ class CustomDrawer extends StatelessWidget {
                     icon: Icons.app_registration,
                     title: 'register',
                     onTap: () {
-                      Navigator.pushNamed(context, SignUpView.routeName);
+                      Navigator.pushNamed(context, AppRouteNames.signup);
                     },
                   ),
 
@@ -62,7 +63,7 @@ class CustomDrawer extends StatelessWidget {
                     icon: Icons.login,
                     title: 'login',
                     onTap: () {
-                      Navigator.pushNamed(context, LoginView.routeName);
+                      Navigator.pushNamed(context, AppRouteNames.signin);
                     },
                   ),
                 ],

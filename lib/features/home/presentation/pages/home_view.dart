@@ -1,12 +1,13 @@
 import 'dart:async';
-import 'package:elmasa/core/functions/banner_card.dart';
-import 'package:elmasa/core/functions/category_card.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/features/home/presentation/pages/widgets/banner_card.dart';
+import 'package:elmasa/features/home/presentation/pages/widgets/category_card.dart';
 import 'package:elmasa/core/utils/themes/app_colors.dart';
 import 'package:elmasa/features/home/presentation/pages/widgets/custom_app_bar.dart';
 import 'package:elmasa/features/home/presentation/pages/widgets/custom_drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/utils/widgets/footer_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -51,7 +52,8 @@ class _HomeViewState extends State<HomeView> {
       drawer: CustomDrawer(),
 
       backgroundColor: AppColors.background,
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
+
       body: ListView(
         padding: EdgeInsets.zero,
         children: [

@@ -1,3 +1,5 @@
+import 'package:elmasa/core/routes/app_routes.dart';
+import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/core/routes/on_generate_routs.dart';
 import 'package:elmasa/core/utils/themes/app_colors.dart';
 import 'package:elmasa/features/home/presentation/pages/home_view.dart';
@@ -27,8 +29,8 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return MaterialApp(
-          onGenerateRoute: onGenerateRoutes,
-          initialRoute: HomeView.routeName,
+          onGenerateRoute: AppRoutes.generateRoute,
+          initialRoute: AppRouteNames.home,
           title: 'Elmasa',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
@@ -37,10 +39,8 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
             useMaterial3: true,
           ),
-          home: child,
         );
       },
-      child: const HomeView(),
     );
   }
 }
