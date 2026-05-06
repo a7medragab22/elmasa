@@ -1,9 +1,9 @@
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:elmasa/core/widgets/main_app_bar.dart';
-import 'package:elmasa/core/widgets/footer_widget.dart';
-import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/core/widgets/main_bottom_nav_bar.dart';
 
 class TermsConditionsView extends StatelessWidget {
   const TermsConditionsView({super.key});
@@ -52,7 +52,7 @@ class TermsConditionsView extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 32.h),
-                
+
                 // Title
                 Center(
                   child: Column(
@@ -81,7 +81,8 @@ class TermsConditionsView extends StatelessWidget {
                   color: Colors.blue,
                   icon: Icons.balance,
                   title: 'Intellectual Property &\nLicense',
-                  content: 'All content available on this site (including text, design, graphics, logos, icons, images, audio clips, and software) is the exclusive property of (Saad) and its licensors. Saad grants you a limited license for personal use of this site. Saad retains full ownership of this content.',
+                  content:
+                      'All content available on this site (including text, design, graphics, logos, icons, images, audio clips, and software) is the exclusive property of (Saad) and its licensors. Saad grants you a limited license for personal use of this site. Saad retains full ownership of this content.',
                 ),
                 SizedBox(height: 24.h),
 
@@ -89,7 +90,8 @@ class TermsConditionsView extends StatelessWidget {
                   color: Colors.amber,
                   icon: Icons.local_offer,
                   title: 'Weekend Flash Sale',
-                  content: 'The 25% discount code [WEEK25] applies to selected items only for 48 hours. The discount does not include free shipping and cannot be combined with other offers. Vouchers and coupons do not apply to discounted products.',
+                  content:
+                      'The 25% discount code [WEEK25] applies to selected items only for 48 hours. The discount does not include free shipping and cannot be combined with other offers. Vouchers and coupons do not apply to discounted products.',
                 ),
                 SizedBox(height: 24.h),
 
@@ -97,7 +99,8 @@ class TermsConditionsView extends StatelessWidget {
                   color: Colors.green,
                   icon: Icons.shopping_cart,
                   title: 'Orders & Pricing',
-                  content: 'All orders are subject to acceptance. We reserve the right to refuse or cancel orders for any reason. Stock availability is not guaranteed. All prices are correct at the time of entry but may change.',
+                  content:
+                      'All orders are subject to acceptance. We reserve the right to refuse or cancel orders for any reason. Stock availability is not guaranteed. All prices are correct at the time of entry but may change.',
                 ),
                 SizedBox(height: 24.h),
 
@@ -105,7 +108,8 @@ class TermsConditionsView extends StatelessWidget {
                   color: Colors.cyan,
                   icon: Icons.credit_card,
                   title: 'Prices & Payment\nPolicy',
-                  content: 'Prices include VAT. Card payments are subject to verification. Card details must match the holder. Card data will not be stored or sold to third parties, except for the payment gateway.',
+                  content:
+                      'Prices include VAT. Card payments are subject to verification. Card details must match the holder. Card data will not be stored or sold to third parties, except for the payment gateway.',
                 ),
                 SizedBox(height: 24.h),
 
@@ -113,7 +117,8 @@ class TermsConditionsView extends StatelessWidget {
                   color: Colors.redAccent,
                   icon: Icons.card_giftcard,
                   title: 'Offers & Discounts',
-                  content: 'Code [free10] gives free shipping for 6 months for orders over 199 SAR (App only). ACTAN code applies to (New Saad). AC100 code applies to (New Saad) excluding discounted items.',
+                  content:
+                      'Code [free10] gives free shipping for 6 months for orders over 199 SAR (App only). ACTAN code applies to (New Saad). AC100 code applies to (New Saad) excluding discounted items.',
                 ),
                 SizedBox(height: 24.h),
 
@@ -121,7 +126,8 @@ class TermsConditionsView extends StatelessWidget {
                   color: Colors.red,
                   icon: Icons.assignment_return,
                   title: 'Offer Return Policy',
-                  content: 'Orders within (2 for 95) offer: Individual items cannot be returned; the full offer must be returned. For more than 2 items, returns must be in even numbers.',
+                  content:
+                      'Orders within (2 for 95) offer: Individual items cannot be returned; the full offer must be returned. For more than 2 items, returns must be in even numbers.',
                 ),
                 SizedBox(height: 32.h),
 
@@ -129,30 +135,34 @@ class TermsConditionsView extends StatelessWidget {
                 _buildExpandableSection(
                   icon: Icons.privacy_tip,
                   title: 'Liability & Privacy',
-                  content: 'Your submission of personal information is subject to our Privacy Policy. Your use of the site is at your own risk. Saad does not guarantee the site is free from interruptions or errors and is not liable for damages resulting from its use. You agree to indemnify and defend Saad against any claims.',
+                  content:
+                      'Your submission of personal information is subject to our Privacy Policy. Your use of the site is at your own risk. Saad does not guarantee the site is free from interruptions or errors and is not liable for damages resulting from its use. You agree to indemnify and defend Saad against any claims.',
                   isExpanded: true,
                 ),
                 SizedBox(height: 16.h),
                 _buildExpandableSection(
                   icon: Icons.gavel,
                   title: 'Law & Disputes',
-                  content: 'These terms constitute the entire agreement. If any part is void, the rest remains valid. These terms are governed by the laws of Saudi Arabia. Parties agree to attempt amicable dispute resolution within 30 days before legal action.',
+                  content:
+                      'These terms constitute the entire agreement. If any part is void, the rest remains valid. These terms are governed by the laws of Saudi Arabia. Parties agree to attempt amicable dispute resolution within 30 days before legal action.',
                 ),
                 SizedBox(height: 16.h),
                 _buildExpandableSection(
                   icon: Icons.comment,
                   title: 'Replies & Comments',
-                  content: 'We welcome comments but do not accept confidential info. All submissions become exclusive property of Saad. Profanity or fake addresses are prohibited. We reserve the right to delete or edit data.',
+                  content:
+                      'We welcome comments but do not accept confidential info. All submissions become exclusive property of Saad. Profanity or fake addresses are prohibited. We reserve the right to delete or edit data.',
                 ),
                 SizedBox(height: 16.h),
                 _buildExpandableSection(
                   icon: Icons.edit,
                   title: 'Order Modification',
-                  content: 'For speed of execution, the order becomes final and unmodifiable after payment. The customer is responsible for reviewing data before completion.',
+                  content:
+                      'For speed of execution, the order becomes final and unmodifiable after payment. The customer is responsible for reviewing data before completion.',
                 ),
 
                 SizedBox(height: 48.h),
-                
+
                 // Copyright text
                 Center(
                   child: Text(
@@ -181,7 +191,12 @@ class TermsConditionsView extends StatelessWidget {
     );
   }
 
-  Widget _buildTermCard({required Color color, required IconData icon, required String title, required String content}) {
+  Widget _buildTermCard({
+    required Color color,
+    required IconData icon,
+    required String title,
+    required String content,
+  }) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -250,7 +265,12 @@ class TermsConditionsView extends StatelessWidget {
     );
   }
 
-  Widget _buildExpandableSection({required IconData icon, required String title, required String content, bool isExpanded = false}) {
+  Widget _buildExpandableSection({
+    required IconData icon,
+    required String title,
+    required String content,
+    bool isExpanded = false,
+  }) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,

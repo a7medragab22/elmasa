@@ -1,9 +1,9 @@
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:elmasa/core/widgets/main_app_bar.dart';
-import 'package:elmasa/core/widgets/footer_widget.dart';
-import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/core/widgets/main_bottom_nav_bar.dart';
 
 class PrivacyPolicyView extends StatelessWidget {
   const PrivacyPolicyView({super.key});
@@ -99,7 +99,7 @@ class PrivacyPolicyView extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 32.h),
-                      
+
                       // Payment Security Box
                       Container(
                         padding: EdgeInsets.all(20.w),
@@ -131,7 +131,7 @@ class PrivacyPolicyView extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 32.h),
-                      
+
                       Text(
                         "If you have any questions or concerns about Saad's access to or use of your personal information, please contact us via email or at phone number 920010063.",
                         style: TextStyle(

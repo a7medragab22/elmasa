@@ -21,7 +21,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             hintText: 'Search...',
           ),
           onChanged: (value) {
-            // هنا تعمل الفلترة
             print(value);
           },
         ),

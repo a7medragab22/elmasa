@@ -1,3 +1,4 @@
+import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/core/services/firebase_auth_service.dart';
 import 'package:elmasa/core/utils/widgets/custom_text_field.dart';
 import 'package:elmasa/core/utils/widgets/custom_button.dart';
@@ -31,7 +32,7 @@ class SigninView extends StatelessWidget {
                 showSnackBarWidget(context, 'تمت تسجيل الدخول بنجاح');
                 Navigator.pushNamedAndRemoveUntil(
                   context,
-                  HomeView.routeName,
+                  AppRouteNames.home,
                   (route) => false,
                 );
               } else if (state is SigninFailureState) {

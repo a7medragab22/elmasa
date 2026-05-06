@@ -1,6 +1,7 @@
 import 'package:elmasa/core/utils/widgets/custom_button.dart';
 import 'package:elmasa/core/utils/widgets/custom_text_field.dart';
 import 'package:elmasa/features/auth/presentation/cubits/signin_cubit/signin_cubit.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,27 +14,23 @@ class CustomSigninForm extends StatefulWidget {
 }
 
 class _CustomSigninFormState extends State<CustomSigninForm> {
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   GlobalKey<FormState> formKey = GlobalKey();
-  String? email, password;
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
+      autovalidateMode: autovalidateMode,
       key: formKey,
       child: ListView(
         children: [
           SizedBox(height: 100.h),
 
-          CustomTextField(
-            hintText: 'email',
-            onSaved: (value) {
-              email = value;
-            },
-          ),
+          CustomTextField(hintText: 'email', controller: email),
           SizedBox(height: 20.h),
           CustomTextField(
-            onSaved: (value) {
-              password = value;
-            },
+            controller: password,
             hintText: 'password',
             suffixIcon: IconButton(
               onPressed: () {},
@@ -46,17 +43,28 @@ class _CustomSigninFormState extends State<CustomSigninForm> {
             buttonName: 'Login',
             onPressed: () async {
               if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-
                 await context.read<SigninCubit>().call(
-                  email: email!,
-                  password: password!,
+                  email: email.text,
+                  password: password.text,
                 );
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
               }
             },
           ),
           SizedBox(height: 10),
-          Align(alignment: Alignment.topRight, child: Text('forget password')),
+          Align(
+            alignment: Alignment.topRight,
+            child: GestureDetector(
+              onTap: () async {
+                await FirebaseAuth.instance.sendPasswordResetEmail(
+                  email: email.text,
+                );
+              },
+              child: Text('forget password'),
+            ),
+          ),
         ],
       ),
     );
