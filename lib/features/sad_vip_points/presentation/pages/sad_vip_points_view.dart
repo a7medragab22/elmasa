@@ -1,9 +1,9 @@
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:elmasa/core/widgets/main_app_bar.dart';
-import 'package:elmasa/core/widgets/footer_widget.dart';
-import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/core/widgets/main_bottom_nav_bar.dart';
 
 class SadVipPointsView extends StatelessWidget {
   const SadVipPointsView({super.key});
@@ -59,7 +59,10 @@ class SadVipPointsView extends StatelessWidget {
                   children: [
                     Container(
                       width: double.infinity,
-                      padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 24.w),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 40.h,
+                        horizontal: 24.w,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16.r),
@@ -115,8 +118,13 @@ class SadVipPointsView extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF6E4E32), // Brown color
-                                padding: EdgeInsets.symmetric(horizontal: 48.w, vertical: 16.h),
+                                backgroundColor: const Color(
+                                  0xFF6E4E32,
+                                ), // Brown color
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 48.w,
+                                  vertical: 16.h,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
@@ -147,7 +155,7 @@ class SadVipPointsView extends StatelessWidget {
                             color: Colors.black.withValues(alpha: 0.1),
                             blurRadius: 10,
                             offset: const Offset(2, 4),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -194,15 +202,9 @@ class SadVipPointsView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 24.h),
-                _buildDiscountCard(
-                  points: '1000 Points',
-                  discount: '100 SAR',
-                ),
+                _buildDiscountCard(points: '1000 Points', discount: '100 SAR'),
                 SizedBox(height: 16.h),
-                _buildDiscountCard(
-                  points: '500 Points',
-                  discount: '50 SAR',
-                ),
+                _buildDiscountCard(points: '500 Points', discount: '50 SAR'),
                 SizedBox(height: 48.h),
               ],
             ),
@@ -364,7 +366,10 @@ class SadVipPointsView extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.w,
+                    vertical: 12.h,
+                  ),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF8FAFC),
                     borderRadius: BorderRadius.circular(24.r),
@@ -387,7 +392,11 @@ class SadVipPointsView extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
-                  icon: Icon(Icons.copy, color: const Color(0xFF6E4E32), size: 20.sp),
+                  icon: Icon(
+                    Icons.copy,
+                    color: const Color(0xFF6E4E32),
+                    size: 20.sp,
+                  ),
                   onPressed: () {},
                 ),
               ),
@@ -446,10 +455,7 @@ class SadVipPointsView extends StatelessWidget {
           SizedBox(height: 8.h),
           Text(
             'SAR${discount.split(' ')[0]} Discount Code',
-            style: TextStyle(
-              color: const Color(0xFF94A3B8),
-              fontSize: 14.sp,
-            ),
+            style: TextStyle(color: const Color(0xFF94A3B8), fontSize: 14.sp),
           ),
           SizedBox(height: 24.h),
           Text(

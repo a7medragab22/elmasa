@@ -1,9 +1,9 @@
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:elmasa/core/widgets/main_app_bar.dart';
-import 'package:elmasa/core/widgets/footer_widget.dart';
-import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/core/widgets/main_bottom_nav_bar.dart';
 
 class ReturnMethodView extends StatelessWidget {
   const ReturnMethodView({super.key});
@@ -56,7 +56,10 @@ class ReturnMethodView extends StatelessWidget {
                 // Main Content Card
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 24.w),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 40.h,
+                    horizontal: 24.w,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16.r),
@@ -80,7 +83,8 @@ class ReturnMethodView extends StatelessWidget {
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
-                          Icons.chat, // Using chat as a placeholder for WhatsApp
+                          Icons
+                              .chat, // Using chat as a placeholder for WhatsApp
                           color: Colors.white,
                           size: 48.sp,
                         ),
@@ -115,7 +119,10 @@ class ReturnMethodView extends StatelessWidget {
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF15803D),
-                          padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 32.w,
+                            vertical: 16.h,
+                          ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.r),
                           ),

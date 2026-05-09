@@ -1,9 +1,9 @@
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:elmasa/core/widgets/main_app_bar.dart';
-import 'package:elmasa/core/widgets/footer_widget.dart';
-import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/core/widgets/main_bottom_nav_bar.dart';
 
 class DeliveryServiceView extends StatelessWidget {
   const DeliveryServiceView({super.key});
@@ -241,27 +241,29 @@ class DeliveryServiceView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 24.h),
-                ...details.map((detail) => Padding(
-                      padding: EdgeInsets.only(bottom: 16.h),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(detail.icon, color: detail.iconColor, size: 24.sp),
-                          SizedBox(width: 12.w),
-                          Expanded(
-                            child: Text(
-                              detail.text,
-                              style: TextStyle(
-                                color: const Color(0xFF475569),
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w500,
-                                height: 1.5,
-                              ),
+                ...details.map(
+                  (detail) => Padding(
+                    padding: EdgeInsets.only(bottom: 16.h),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(detail.icon, color: detail.iconColor, size: 24.sp),
+                        SizedBox(width: 12.w),
+                        Expanded(
+                          child: Text(
+                            detail.text,
+                            style: TextStyle(
+                              color: const Color(0xFF475569),
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              height: 1.5,
                             ),
                           ),
-                        ],
-                      ),
-                    )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

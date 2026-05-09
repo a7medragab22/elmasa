@@ -1,3 +1,5 @@
+import 'package:elmasa/features/auth/presentation/views/sign_up_view.dart';
+import 'package:elmasa/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:elmasa/features/home/presentation/pages/home_view.dart';
 import 'package:elmasa/features/blog/presentation/pages/blog_view.dart';
@@ -19,6 +21,10 @@ class AppRoutes {
     switch (settings.name) {
       case AppRouteNames.home:
         return MaterialPageRoute(builder: (_) => const HomeView());
+      case SigninView.routeName:
+        return MaterialPageRoute(builder: (_) => const HomeView());
+      case SignUpView.routeName:
+        return MaterialPageRoute(builder: (_) => const HomeView());
       case AppRouteNames.blog:
         return MaterialPageRoute(builder: (_) => const BlogView());
       case AppRouteNames.returnPolicy:
@@ -37,6 +43,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const GiftPolicyView());
       case AppRouteNames.sadVipPoints:
         return MaterialPageRoute(builder: (_) => const SadVipPointsView());
+      case AppRouteNames.signin:
+        return MaterialPageRoute(builder: (_) => const SigninView());
+      case AppRouteNames.signup:
+        return MaterialPageRoute(builder: (_) => const SignUpView());
       case AppRouteNames.products:
         final tag = settings.arguments as String?;
         return MaterialPageRoute(builder: (_) => ProductsView(tag: tag));
@@ -46,9 +56,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CheckoutView());
       default:
         return MaterialPageRoute(
-          builder: (_) => const Scaffold(
-            body: Center(child: Text('Route not found')),
-          ),
+          builder: (_) =>
+              const Scaffold(body: Center(child: Text('Route not found'))),
         );
     }
   }
