@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/core/routes/app_routes_name.dart';
 
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
@@ -12,7 +13,7 @@ class AppFooter extends StatelessWidget {
         _BottomFooter(),
       ],
     );
-  }
+}
 }
 
 class _TopFooter extends StatelessWidget {
@@ -53,22 +54,41 @@ class _TopFooter extends StatelessWidget {
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    _FooterLink('Blog'),
-                    _FooterLink('Return Policy'),
-                    _FooterLink('Terms & Conditions'),
-                    _FooterLink('Delivery Service'),
+                  children: [
+                    _FooterLink('Blog', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.blog);
+                    }),
+                    _FooterLink('Return Policy', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.returnPolicy);
+                    }),
+                    _FooterLink('Terms & Conditions', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.termsConditions);
+                    }),
+                    _FooterLink('Delivery Service', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.deliveryService);
+                    }),
+                    _FooterLink('Privacy Policy', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.privacyPolicy);
+                    }),
                   ],
                 ),
               ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    _FooterLink('Contact Us'),
-                    _FooterLink('Return Method'),
-                    _FooterLink('Gift Policy'),
-                    _FooterLink('Sad VIP Points'),
+                  children: [
+                    _FooterLink('Contact Us', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.contactUs);
+                    }),
+                    _FooterLink('Return Method', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.returnMethod);
+                    }),
+                    _FooterLink('Gift Policy', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.giftPolicy);
+                    }),
+                    _FooterLink('Sad VIP Points', onTap: () {
+                      Navigator.pushNamed(context, AppRouteNames.sadVipPoints);
+                    }),
                   ],
                 ),
               ),
@@ -136,13 +156,17 @@ class _InfoRow extends StatelessWidget {
 
 class _FooterLink extends StatelessWidget {
   final String text;
-  const _FooterLink(this.text);
+  final VoidCallback? onTap;
+  const _FooterLink(this.text, {this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(bottom: 16.h),
-      child: Text(text, style: const TextStyle(color: Color(0xFF003829), fontWeight: FontWeight.bold)),
+      child: InkWell(
+        onTap: onTap,
+        child: Text(text, style: const TextStyle(color: Color(0xFF003829), fontWeight: FontWeight.bold)),
+      ),
     );
   }
 }

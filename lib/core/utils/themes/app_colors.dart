@@ -5,5 +5,4 @@ class AppColors {
   static const Color secondary = Colors.green;
   static const Color background = Colors.white;
   static const Color text = Colors.black;
-
 }
