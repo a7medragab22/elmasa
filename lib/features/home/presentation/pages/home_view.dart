@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/widgets/footer_widget.dart';
 import '../../../../core/widgets/main_app_bar.dart';
+import '../../../../core/routes/app_routes_name.dart';
 import '../../../../core/widgets/main_bottom_nav_bar.dart';
 
 class HomeView extends StatefulWidget {
@@ -160,7 +161,12 @@ class _HomeViewState extends State<HomeView> {
             padding: EdgeInsets.symmetric(horizontal: 8.w),
             child: Wrap(
               spacing: 8.w,
-              children: tags.map((t) => Chip(label: Text(t))).toList(),
+              children: tags.map((t) => ActionChip(
+                label: Text(t),
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRouteNames.products, arguments: t);
+                },
+              )).toList(),
             ),
           ),
           SizedBox(height: 8.h),

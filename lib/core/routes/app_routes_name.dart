@@ -9,4 +9,7 @@ class AppRouteNames {
   static const String returnMethod = '/return-method';
   static const String giftPolicy = '/gift-policy';
   static const String sadVipPoints = '/sad-vip-points';
+  static const String products = '/products';
+  static const String cart = '/cart';
+  static const String checkout = '/checkout';
 }

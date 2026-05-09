@@ -9,6 +9,9 @@ import 'package:elmasa/features/contact_us/presentation/pages/contact_us_view.da
 import 'package:elmasa/features/return_method/presentation/pages/return_method_view.dart';
 import 'package:elmasa/features/gift_policy/presentation/pages/gift_policy_view.dart';
 import 'package:elmasa/features/sad_vip_points/presentation/pages/sad_vip_points_view.dart';
+import 'package:elmasa/features/products/presentation/pages/products_view.dart';
+import 'package:elmasa/features/cart/presentation/pages/cart_view.dart';
+import 'package:elmasa/features/checkout/presentation/pages/checkout_view.dart';
 import 'app_routes_name.dart';
 
 class AppRoutes {
@@ -34,6 +37,13 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const GiftPolicyView());
       case AppRouteNames.sadVipPoints:
         return MaterialPageRoute(builder: (_) => const SadVipPointsView());
+      case AppRouteNames.products:
+        final tag = settings.arguments as String?;
+        return MaterialPageRoute(builder: (_) => ProductsView(tag: tag));
+      case AppRouteNames.cart:
+        return MaterialPageRoute(builder: (_) => const CartView());
+      case AppRouteNames.checkout:
+        return MaterialPageRoute(builder: (_) => const CheckoutView());
       default:
         return MaterialPageRoute(
           builder: (_) => const Scaffold(
