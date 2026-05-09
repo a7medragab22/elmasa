@@ -1,10 +1,11 @@
-import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/cart_manager.dart';
+import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/utils/widgets/footer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/widgets/footer_widget.dart';
-import '../../../../core/widgets/main_app_bar.dart';
-import '../../../../core/widgets/main_bottom_nav_bar.dart';
+
 
 class ProductsView extends StatefulWidget {
   final String? tag;
