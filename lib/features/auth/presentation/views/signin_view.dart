@@ -1,16 +1,13 @@
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/core/services/firebase_auth_service.dart';
-import 'package:elmasa/core/utils/widgets/custom_text_field.dart';
-import 'package:elmasa/core/utils/widgets/custom_button.dart';
+
 import 'package:elmasa/core/utils/widgets/show_snack_bar_widget.dart';
 import 'package:elmasa/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:elmasa/features/auth/presentation/cubits/signin_cubit/signin_cubit.dart';
 import 'package:elmasa/features/auth/presentation/cubits/signin_cubit/signin_state.dart';
 import 'package:elmasa/features/auth/presentation/views/widgets/custom_signin_form.dart';
-import 'package:elmasa/features/home/presentation/pages/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class SigninView extends StatelessWidget {

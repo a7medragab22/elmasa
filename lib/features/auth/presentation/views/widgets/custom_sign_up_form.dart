@@ -1,9 +1,7 @@
-import 'dart:math';
 
 import 'package:elmasa/core/utils/widgets/custom_button.dart';
 import 'package:elmasa/core/utils/widgets/custom_text_field.dart';
 import 'package:elmasa/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
-import 'package:elmasa/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

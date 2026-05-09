@@ -2,7 +2,6 @@ import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/core/utils/widgets/show_snack_bar_widget.dart';
 import 'package:elmasa/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:elmasa/features/auth/presentation/cubits/signup_cubit/signup_state.dart';
-import 'package:elmasa/features/auth/presentation/views/signin_view.dart';
 import 'package:elmasa/features/auth/presentation/views/widgets/custom_sign_up_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

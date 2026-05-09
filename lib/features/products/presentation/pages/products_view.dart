@@ -155,7 +155,7 @@ class _ProductsViewState extends State<ProductsView> {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.withValues(alpha:  0.1),
             spreadRadius: 1,
             blurRadius: 10,
             offset: const Offset(0, 5),
@@ -393,7 +393,7 @@ class _ProductsViewState extends State<ProductsView> {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.withValues(alpha: (0.1)),
             spreadRadius: 1,
             blurRadius: 10,
             offset: const Offset(0, 5),
