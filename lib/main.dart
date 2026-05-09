@@ -1,6 +1,6 @@
 import 'package:elmasa/core/routes/app_routes.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
-import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,5 @@
 import 'package:elmasa/core/utils/cart_manager.dart';
-import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/widgets/footer_widget.dart';
 import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
