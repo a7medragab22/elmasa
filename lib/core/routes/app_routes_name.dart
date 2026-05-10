@@ -14,4 +14,7 @@ class AppRouteNames {
   static const String products = '/products';
   static const String cart = '/cart';
   static const String checkout = '/checkout';
+  static const String forgotPassword = '/forgot-password';
+  static const String resetPassword = '/reset-password';
+  static const String verification = '/verification';
 }
