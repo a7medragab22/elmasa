@@ -7,7 +7,7 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.controller,
     this.textInputType,
-    this.obcureText,
+    this.obscureText,
     this.onSaved,
     this.prefixIcon,
   });
@@ -16,14 +16,14 @@ class CustomTextField extends StatelessWidget {
   final IconButton? suffixIcon;
   final IconButton? prefixIcon;
   final TextEditingController? controller;
-  final bool? obcureText;
+  final bool? obscureText;
   final TextInputType? textInputType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: onSaved,
-      obscureText: obcureText ?? false,
+      obscureText: obscureText ?? false,
       keyboardType: textInputType,
       validator: (v) {
         if (v!.isEmpty) {
@@ -39,6 +39,8 @@ class CustomTextField extends StatelessWidget {
 
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
+        suffixIconColor: Colors.grey,
+        suffixStyle: TextStyle(fontSize: 20),
         hintText: hintText,
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(6)),
       ),
