@@ -1,4 +1,7 @@
+import 'package:elmasa/features/auth/presentation/views/forgot_password_view.dart';
+import 'package:elmasa/features/auth/presentation/views/reset_password_view.dart';
 import 'package:elmasa/features/auth/presentation/views/signin_view.dart';
+import 'package:elmasa/features/auth/presentation/views/verification_view.dart';
 import 'package:flutter/material.dart';
 import 'package:elmasa/features/home/presentation/pages/home_view.dart';
 import 'package:elmasa/features/blog/presentation/pages/blog_view.dart';
@@ -46,6 +49,12 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const GiftPolicyView());
       case AppRouteNames.sadVipPoints:
         return MaterialPageRoute(builder: (_) => const SadVipPointsView());
+      case AppRouteNames.forgotPassword:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordView());
+      case AppRouteNames.resetPassword:
+        return MaterialPageRoute(builder: (_) => const ResetPasswordView());
+      case AppRouteNames.verification:
+        return MaterialPageRoute(builder: (_) => const VerificationView());
 
       case AppRouteNames.products:
         final tag = settings.arguments as String?;

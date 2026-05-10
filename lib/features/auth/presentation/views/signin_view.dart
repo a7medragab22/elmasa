@@ -31,38 +31,41 @@ class SigninView extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: AppBar(title: Text('Sign In')),
-        body: MultiBlocListener(
-          listeners: [
-            BlocListener<SigninCubit, SigninState>(
-              listener: (context, state) {
-                if (state is SigninSuccessState) {
-                  showSnackBarWidget(context, 'Login successful');
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    AppRouteNames.home,
-                    (route) => false,
-                  );
-                } else if (state is SigninFailureState) {
-                  showSnackBarWidget(context, state.errMessage);
-                }
-              },
-            ),
-            BlocListener<SignupCubit, SignupState>(
-              listener: (context, state) {
-                if (state is SignupSuccessState) {
-                  showSnackBarWidget(context, 'Account created successfully');
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    AppRouteNames.home,
-                    (route) => false,
-                  );
-                } else if (state is SignupFailureState) {
-                  showSnackBarWidget(context, state.errMessage);
-                }
-              },
-            ),
-          ],
-          child: AuthToggleContainer(initialIndex: initialIndex),
+        body: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: MultiBlocListener(
+            listeners: [
+              BlocListener<SigninCubit, SigninState>(
+                listener: (context, state) {
+                  if (state is SigninSuccessState) {
+                    showSnackBarWidget(context, 'Login successful');
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      AppRouteNames.home,
+                      (route) => false,
+                    );
+                  } else if (state is SigninFailureState) {
+                    showSnackBarWidget(context, state.errMessage);
+                  }
+                },
+              ),
+              BlocListener<SignupCubit, SignupState>(
+                listener: (context, state) {
+                  if (state is SignupSuccessState) {
+                    showSnackBarWidget(context, 'Account created successfully');
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      AppRouteNames.home,
+                      (route) => false,
+                    );
+                  } else if (state is SignupFailureState) {
+                    showSnackBarWidget(context, state.errMessage);
+                  }
+                },
+              ),
+            ],
+            child: AuthToggleContainer(initialIndex: initialIndex),
+          ),
         ),
       ),
     );
