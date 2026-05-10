@@ -1,6 +1,4 @@
-import 'dart:math';
 
-import 'package:elmasa/core/utils/widgets/show_snack_bar_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseAuthService {
