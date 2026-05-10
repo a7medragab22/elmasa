@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:elmasa/core/utils/widgets/footer_widget.dart';
-import 'package:elmasa/features/home/presentation/pages/widgets/banner_card.dart';
-import 'package:elmasa/features/home/presentation/pages/widgets/category_card.dart';
+import 'package:elmasa/features/home/presentation/widgets/banner_card.dart';
+import 'package:elmasa/features/home/presentation/widgets/category_card.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
-import 'package:elmasa/core/utils/themes/app_colors.dart';
-import 'package:elmasa/features/home/presentation/pages/widgets/custom_app_bar.dart';
-import 'package:elmasa/features/home/presentation/pages/widgets/custom_drawer_widget.dart';
+import 'package:elmasa/core/themes/app_colors.dart';
+import 'package:elmasa/features/home/presentation/widgets/custom_app_bar.dart';
+import 'package:elmasa/features/home/presentation/widgets/custom_drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
