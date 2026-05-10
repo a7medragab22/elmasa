@@ -1,4 +1,4 @@
-import 'package:elmasa/core/utils/themes/app_colors.dart';
+import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MainBottomNavBar extends StatelessWidget {

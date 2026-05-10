@@ -11,4 +11,7 @@ class AppRouteNames {
   static const String sadVipPoints = '/sad-vip-points';
   static const String signin = '/signin';
   static const String signup = '/signup';
+  static const String products = '/products';
+  static const String cart = '/cart';
+  static const String checkout = '/checkout';
 }

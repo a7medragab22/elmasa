@@ -1,6 +1,5 @@
 import 'package:elmasa/core/routes/app_routes_name.dart';
-import 'package:elmasa/features/auth/presentation/views/signin_view.dart';
-import 'package:elmasa/features/auth/presentation/views/sign_up_view.dart';
+
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -81,7 +80,7 @@ class DrawerItem extends StatelessWidget {
   final String title;
   final void Function()? onTap;
 
-  DrawerItem({super.key, required this.icon, required this.title, this.onTap});
+  const DrawerItem({super.key, required this.icon, required this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {

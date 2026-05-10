@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:elmasa/core/utils/widgets/footer_widget.dart';
-import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
-import 'package:elmasa/features/home/presentation/pages/widgets/banner_card.dart';
-import 'package:elmasa/features/home/presentation/pages/widgets/category_card.dart';
-import 'package:elmasa/core/utils/themes/app_colors.dart';
-import 'package:elmasa/features/home/presentation/pages/widgets/custom_app_bar.dart';
-import 'package:elmasa/features/home/presentation/pages/widgets/custom_drawer_widget.dart';
+import 'package:elmasa/features/home/presentation/widgets/banner_card.dart';
+import 'package:elmasa/features/home/presentation/widgets/category_card.dart';
+import 'package:elmasa/core/routes/app_routes_name.dart';
+import 'package:elmasa/core/themes/app_colors.dart';
+import 'package:elmasa/features/home/presentation/widgets/custom_app_bar.dart';
+import 'package:elmasa/features/home/presentation/widgets/custom_drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,6 +20,14 @@ class _HomeViewState extends State<HomeView> {
   int _currentBannerIndex = 0;
   final PageController _pageController = PageController();
   Timer? _timer;
+
+  final List<String> _supportTags = [
+    'Casual',
+    'Evening',
+    'Silk',
+    'Men',
+    'Bags',
+  ];
 
   @override
   void initState() {
@@ -136,6 +144,31 @@ class _HomeViewState extends State<HomeView> {
                   'Past',
                   'Upcoming',
                 ], 'assets/giveaways.jpg'),
+                SizedBox(height: 16.h),
+                Text(
+                  'Support Tags',
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Wrap(
+                  spacing: 8.w,
+                  runSpacing: 8.h,
+                  children: _supportTags.map((t) {
+                    return ActionChip(
+                      label: Text(t),
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          AppRouteNames.products,
+                          arguments: t,
+                        );
+                      },
+                    );
+                  }).toList(),
+                ),
               ],
             ),
           ),

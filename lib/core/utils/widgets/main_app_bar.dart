@@ -1,3 +1,5 @@
+import 'package:elmasa/core/routes/app_routes_name.dart';
+import 'package:elmasa/core/utils/cart_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,33 +29,42 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        Stack(
-          alignment: Alignment.center,
-          children: [
-            IconButton(
-              icon: Icon(Icons.shopping_bag_outlined, color: Colors.brown.shade300, size: 28.sp),
-              onPressed: () {},
-            ),
-            Positioned(
-              right: 8.w,
-              top: 8.h,
-              child: Container(
-                padding: EdgeInsets.all(4.sp),
-                decoration: const BoxDecoration(
-                  color: Color(0xFF1E3A34), // Dark green color
-                  shape: BoxShape.circle,
+        ListenableBuilder(
+          listenable: CartManager.instance,
+          builder: (context, _) {
+            final cartCount = CartManager.instance.totalItems;
+            return Stack(
+              alignment: Alignment.center,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.shopping_bag_outlined, color: Colors.brown.shade300, size: 28.sp),
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRouteNames.cart);
+                  },
                 ),
-                child: Text(
-                  '0',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.bold,
+                if (cartCount > 0)
+                  Positioned(
+                    right: 8.w,
+                    top: 8.h,
+                    child: Container(
+                      padding: EdgeInsets.all(4.sp),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF1E3A34), // Dark green color
+                        shape: BoxShape.circle,
+                      ),
+                      child: Text(
+                        '$cartCount',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-          ],
+              ],
+            );
+          }
         ),
       ],
     );
