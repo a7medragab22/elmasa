@@ -1,3 +1,4 @@
+import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -40,7 +41,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: Colors.black87,
             size: 24,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRouteNames.cart);
+          },
         ),
       ],
     );
