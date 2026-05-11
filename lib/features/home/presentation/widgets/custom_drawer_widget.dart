@@ -37,7 +37,17 @@ class CustomDrawer extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  DrawerItem(icon: Icons.home_outlined, title: "Home"),
+                  DrawerItem(
+                    icon: Icons.home_outlined,
+                    title: "Home",
+                    onTap: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        AppRouteNames.home,
+                        (route) => false,
+                      );
+                    },
+                  ),
                   DrawerItem(
                     icon: Icons.inventory_2_outlined,
                     title: "Fabrics",
@@ -80,7 +90,12 @@ class DrawerItem extends StatelessWidget {
   final String title;
   final void Function()? onTap;
 
-  const DrawerItem({super.key, required this.icon, required this.title, this.onTap});
+  const DrawerItem({
+    super.key,
+    required this.icon,
+    required this.title,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

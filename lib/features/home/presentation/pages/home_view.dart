@@ -119,31 +119,36 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 SizedBox(height: 16.h),
                 // Categories
-                categoryCard('Abayas', [
-                  'Casual',
-                  'Evening',
-                  'Umrah',
-                ], 'assets/abayaa.jpg'),
-                categoryCard('Fabrics', [
-                  'Cotton',
-                  'Silk',
-                  'Wool',
-                ], 'assets/clothes.jpg'),
-                categoryCard('Clothes', [
-                  'Men',
-                  'Women',
-                  'Kids',
-                ], 'assets/fabrics-bg.jpg'),
-                categoryCard('Leather', [
-                  'Bags',
-                  'Wallets',
-                  'Accessories',
-                ], 'assets/lather-bg.jpg'),
-                categoryCard('Giveaways', [
-                  'Active',
-                  'Past',
-                  'Upcoming',
-                ], 'assets/giveaways.jpg'),
+                categoryCard(
+                  'Abayas',
+                  ['Casual', 'Evening', 'Umrah'],
+                  'assets/abayaa.jpg',
+                  context,
+                ),
+                categoryCard(
+                  'Fabrics',
+                  ['Cotton', 'Silk', 'Wool'],
+                  'assets/clothes.jpg',
+                  context,
+                ),
+                categoryCard(
+                  'Clothes',
+                  ['Men', 'Women', 'Kids'],
+                  'assets/fabrics-bg.jpg',
+                  context,
+                ),
+                categoryCard(
+                  'Leather',
+                  ['Bags', 'Wallets', 'Accessories'],
+                  'assets/lather-bg.jpg',
+                  context,
+                ),
+                categoryCard(
+                  'Giveaways',
+                  ['Active', 'Past', 'Upcoming'],
+                  'assets/giveaways.jpg',
+                  context,
+                ),
                 SizedBox(height: 16.h),
                 Text(
                   'Support Tags',

@@ -1,4 +1,4 @@
-import 'package:elmasa/features/auth/presentation/views/signin_view.dart';
+import 'package:elmasa/features/auth/presentation/pages/signin_view.dart';
 import 'package:elmasa/features/home/presentation/pages/home_view.dart';
 import 'package:flutter/material.dart';
 

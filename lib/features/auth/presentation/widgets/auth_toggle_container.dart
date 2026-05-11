@@ -1,6 +1,6 @@
 import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/features/auth/presentation/widgets/custom_signin_form.dart';
-import 'package:elmasa/features/auth/presentation/widgets/custom_sign_up_form.dart';
+import 'package:elmasa/features/auth/presentation/widgets/log_in_form.dart';
+import 'package:elmasa/features/auth/presentation/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -158,11 +158,11 @@ class _AuthToggleContainerState extends State<AuthToggleContainer> {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
-                child: CustomSigninForm(),
+                child: LogInForm(),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
-                child: CustomSignUpForm(),
+                child: SignUpForm(),
               ),
             ],
           ),

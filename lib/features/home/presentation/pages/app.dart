@@ -1,7 +1,9 @@
 import 'package:elmasa/core/routes/on_generate_routs.dart';
 import 'package:elmasa/core/themes/app_colors.dart';
+import 'package:elmasa/features/home/presentation/cubits/favroit_cubit/favroit_cubit.dart';
 import 'package:elmasa/features/home/presentation/pages/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends StatelessWidget {
@@ -31,7 +33,10 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const HomeView(),
+      child: BlocProvider(
+        create: (context) => FavoriteCubit(),
+        child: const HomeView(),
+      ),
     );
   }
 }
