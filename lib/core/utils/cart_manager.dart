@@ -27,7 +27,7 @@ class CartManager extends ChangeNotifier {
 
   List<CartItem> get items => _items;
 
-  int get totalItems => _items.fold(0, (sum, item) => sum + item.quantity);
+  int get totalItems => _items.length;
 
   double get subtotal => _items.fold(0, (sum, item) => sum + (item.price * item.quantity));
   

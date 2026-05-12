@@ -29,7 +29,7 @@ class ForgotPasswordView extends StatelessWidget {
                 Icon(
                   Icons.lock_reset_outlined,
                   size: 100.sp,
-                  color: AppColors.primary,
+                  color: AppColors.primaryYellow,
                 ),
                 SizedBox(height: 30.h),
                 Text(
@@ -67,7 +67,7 @@ class ForgotPasswordView extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                   child: const Text(
                     'Back to Login',
-                    style: TextStyle(color: AppColors.primary),
+                    style: TextStyle(color: AppColors.primaryYellow),
                   ),
                 ),
                 SizedBox(height: 20.h),

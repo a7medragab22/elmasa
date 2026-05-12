@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -8,44 +9,34 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      title: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15.0),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: Colors.grey),
-            ),
 
-            hintText: 'Search...',
+      title: TextField(
+        decoration: InputDecoration(
+          isDense: true,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: 16.w,
+            vertical: 10.h,
           ),
-          onChanged: (value) {
-            print(value);
-          },
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16.r),
+            borderSide: const BorderSide(color: Colors.grey),
+          ),
+          hintText: 'Search...',
+          prefixIcon: Icon(Icons.search, size: 20.sp, color: Colors.grey),
         ),
+        onChanged: (value) {
+          print(value);
+        },
       ),
-
       actions: [
-        IconButton(
-          icon: const Icon(
-            Icons.favorite_border,
-            color: Colors.black87,
-            size: 24,
-          ),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(
-            Icons.shopping_cart_outlined,
-            color: Colors.black87,
-            size: 24,
-          ),
-          onPressed: () {},
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('assets/logo.png'),
         ),
       ],
     );
   }
 
   @override
-  Size get preferredSize => Size(500, 120);
+  Size get preferredSize => Size.fromHeight(70.h);
 }
