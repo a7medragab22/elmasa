@@ -37,7 +37,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                 Icon(
                   Icons.security_outlined,
                   size: 100.sp,
-                  color: AppColors.primary,
+                  color: AppColors.primaryYellow,
                 ),
                 SizedBox(height: 30.h),
                 Text(

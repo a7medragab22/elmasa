@@ -80,11 +80,13 @@ class _AuthToggleContainerState extends State<AuthToggleContainer> {
                         height: 46.h,
                         margin: EdgeInsets.symmetric(horizontal: 4.w),
                         decoration: BoxDecoration(
-                          color: AppColors.primary,
+                          color: AppColors.primaryYellow,
                           borderRadius: BorderRadius.circular(8.r),
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.primary.withValues(alpha: 0.3),
+                              color: AppColors.primaryYellow.withValues(
+                                alpha: 0.3,
+                              ),
                               blurRadius: 12,
                               offset: const Offset(0, 6),
                             ),
