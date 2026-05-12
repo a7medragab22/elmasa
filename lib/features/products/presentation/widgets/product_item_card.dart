@@ -134,57 +134,90 @@ class ProductItemCard extends StatelessWidget {
                           color: const Color(0xFF1E293B),
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          CartManager.instance.addItem(
-                            CartItem(
-                              id: product.id,
-                              title: product.titleEn,
-                              price: product.price,
-                              imageUrl: product.imageUrl,
-                            ),
+                      ListenableBuilder(
+                        listenable: CartManager.instance,
+                        builder: (context, _) {
+                          final cartItem = CartManager.instance.items.firstWhere(
+                            (item) => item.id == product.id,
+                            orElse: () => CartItem(id: '', title: '', price: 0, imageUrl: ''),
                           );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Row(
+                          final isInCart = cartItem.id.isNotEmpty;
+
+                          if (isInCart) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                color: AppColors.primaryGreen,
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Icon(Icons.check_circle, color: Colors.white),
-                                  SizedBox(width: 12.w),
-                                  Expanded(
+                                  _buildCartActionBtn(
+                                    icon: Icons.remove,
+                                    onTap: () => CartManager.instance.updateQuantity(product.id, -1),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 8.w),
                                     child: Text(
-                                      '${product.titleEn} added to cart!',
+                                      '${cartItem.quantity}',
                                       style: TextStyle(
+                                        color: Colors.white,
                                         fontSize: 14.sp,
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.bold,
                                       ),
+                                    ),
+                                  ),
+                                  _buildCartActionBtn(
+                                    icon: Icons.add,
+                                    onTap: () => CartManager.instance.updateQuantity(product.id, 1),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+
+                          return GestureDetector(
+                            onTap: () {
+                              CartManager.instance.addItem(
+                                CartItem(
+                                  id: product.id,
+                                  title: product.titleEn,
+                                  price: product.price,
+                                  imageUrl: product.imageUrl,
+                                ),
+                              );
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                              decoration: BoxDecoration(
+                                color: AppColors.primaryYellow,
+                                borderRadius: BorderRadius.circular(8.r),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.primaryYellow.withValues(alpha: 0.3),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 4),
+                                  ),
+                                ],
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(Icons.add_shopping_cart, color: AppColors.primaryGreen, size: 16.sp),
+                                  SizedBox(width: 6.w),
+                                  Text(
+                                    'Add',
+                                    style: TextStyle(
+                                      color: AppColors.primaryGreen,
+                                      fontSize: 13.sp,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ],
                               ),
-                              backgroundColor: AppColors.primaryGreen,
-                              behavior: SnackBarBehavior.floating,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.r),
-                              ),
-                              duration: const Duration(seconds: 2),
                             ),
                           );
                         },
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-                          decoration: BoxDecoration(
-                            color: AppColors.primaryYellow,
-                            borderRadius: BorderRadius.circular(6.r),
-                          ),
-                          child: Text(
-                            'Add',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
                       ),
                     ],
                   ),
@@ -193,6 +226,17 @@ class ProductItemCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildCartActionBtn({required IconData icon, required VoidCallback onTap}) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8.r),
+      child: Padding(
+        padding: EdgeInsets.all(8.w),
+        child: Icon(icon, color: Colors.white, size: 16.sp),
       ),
     );
   }
