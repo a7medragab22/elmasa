@@ -1,5 +1,5 @@
 import 'package:elmasa/core/routes/app_routes_name.dart';
-
+import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -8,7 +8,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.primaryGreen,
       child: SafeArea(
         child: Column(
           children: [
@@ -20,19 +20,23 @@ class CustomDrawer extends StatelessWidget {
                 children: [
                   const Text(
                     "Menu",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 22, 
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                   IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(Icons.close),
+                    icon: const Icon(Icons.close, color: Colors.white),
                   ),
                 ],
               ),
             ),
 
-            const Divider(),
+            Divider(color: Colors.white.withValues(alpha: 0.2)),
 
             // Items
             Expanded(
@@ -75,12 +79,12 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   DrawerItem(
                     icon: Icons.app_registration,
-                    title: 'register',
+                    title: 'Register',
                     onTap: () => Navigator.pushNamed(context, AppRouteNames.signup),
                   ),
                   DrawerItem(
                     icon: Icons.login,
-                    title: 'login',
+                    title: 'Login',
                     onTap: () => Navigator.pushNamed(context, AppRouteNames.signin),
                   ),
                 ],
@@ -110,12 +114,14 @@ class DrawerItem extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          leading: Icon(icon),
-          title: Text(title, style: const TextStyle(fontSize: 16)),
+          leading: Icon(icon, color: Colors.white),
+          title: Text(
+            title, 
+            style: const TextStyle(fontSize: 16, color: Colors.white),
+          ),
           onTap: onTap,
         ),
-
-        const Divider(height: 1),
+        Divider(color: Colors.white.withValues(alpha: 0.1), height: 1),
       ],
     );
   }

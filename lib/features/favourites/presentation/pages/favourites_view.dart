@@ -20,30 +20,32 @@ class _FavouritesViewState extends State<FavouritesView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: ListenableBuilder(
-        listenable: FavouritesManager.instance,
-        builder: (context, _) {
-          final items = FavouritesManager.instance.items;
-          return Column(
-            children: [
-              FavouritesHeader(
-                isGridView: isGridView,
-                onToggle: (val) => setState(() => isGridView = val),
-                showToggle: items.isNotEmpty,
-              ),
-              const Divider(height: 1),
-              Expanded(
-                child: items.isEmpty
-                    ? _buildEmptyState(context)
-                    : isGridView
-                    ? _buildGridView(items)
-                    : _buildListView(items),
-              ),
-            ],
-          );
-        },
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: ListenableBuilder(
+          listenable: FavouritesManager.instance,
+          builder: (context, _) {
+            final items = FavouritesManager.instance.items;
+            return Column(
+              children: [
+                FavouritesHeader(
+                  isGridView: isGridView,
+                  onToggle: (val) => setState(() => isGridView = val),
+                  showToggle: items.isNotEmpty,
+                ),
+                const Divider(height: 1),
+                Expanded(
+                  child: items.isEmpty
+                      ? _buildEmptyState(context)
+                      : isGridView
+                      ? _buildGridView(items)
+                      : _buildListView(items),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
