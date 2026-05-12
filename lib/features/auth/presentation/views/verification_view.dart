@@ -28,7 +28,7 @@ class VerificationView extends StatelessWidget {
                 Icon(
                   Icons.mark_email_read_outlined,
                   size: 100.sp,
-                  color: AppColors.primary,
+                  color: AppColors.primaryYellow,
                 ),
                 SizedBox(height: 30.h),
                 Text(
@@ -67,7 +67,9 @@ class VerificationView extends StatelessWidget {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide: const BorderSide(color: AppColors.primary),
+                            borderSide: const BorderSide(
+                              color: AppColors.primaryYellow,
+                            ),
                           ),
                         ),
                         onChanged: (value) {
@@ -98,7 +100,10 @@ class VerificationView extends StatelessWidget {
                       onPressed: () {},
                       child: const Text(
                         'Resend',
-                        style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          color: AppColors.primaryYellow,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],

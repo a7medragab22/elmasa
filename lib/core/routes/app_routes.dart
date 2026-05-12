@@ -22,7 +22,10 @@ class AppRoutes {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRouteNames.home:
-        return MaterialPageRoute(builder: (_) => const HomeView());
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const HomeView(),
+        );
       case SigninView.routeName:
         return MaterialPageRoute(builder: (_) => const SigninView());
       case AppRouteNames.signup:
