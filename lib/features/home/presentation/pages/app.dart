@@ -25,9 +25,11 @@ class MyApp extends StatelessWidget {
           title: 'Elmasa',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            primaryColor: AppColors.primary,
+            primaryColor: AppColors.primaryYellow,
             scaffoldBackgroundColor: AppColors.background,
-            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: AppColors.primaryYellow,
+            ),
             useMaterial3: true,
           ),
           home: child,

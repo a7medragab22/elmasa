@@ -1,11 +1,16 @@
 import 'dart:async';
+import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
+import 'package:elmasa/features/cart/presentation/pages/cart_view.dart';
+import 'package:elmasa/features/favourites/presentation/pages/favourites_view.dart';
+import 'package:elmasa/features/categories/presentation/pages/categories_view.dart';
+import 'package:elmasa/features/categories/data/models/category_model.dart';
 import 'package:elmasa/core/utils/widgets/footer_widget.dart';
 import 'package:elmasa/features/home/presentation/widgets/banner_card.dart';
 import 'package:elmasa/features/home/presentation/widgets/category_card.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:elmasa/features/home/presentation/widgets/custom_drawer_widget.dart';
+import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,6 +22,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  int _selectedIndex = 0;
+  bool _initialized = false;
   int _currentBannerIndex = 0;
   final PageController _pageController = PageController();
   Timer? _timer;
@@ -36,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
       if (_pageController.hasClients) {
         int nextPage = _currentBannerIndex + 1;
         if (nextPage > 2) {
-          nextPage = 0; // Wrap around to first page
+          nextPage = 0;
         }
         _pageController.animateToPage(
           nextPage,
@@ -48,169 +55,139 @@ class _HomeViewState extends State<HomeView> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_initialized) {
+      final args = ModalRoute.of(context)?.settings.arguments;
+      if (args is int) {
+        _selectedIndex = args;
+      }
+      _initialized = true;
+    }
+  }
+
+  @override
   void dispose() {
     _timer?.cancel();
     _pageController.dispose();
     super.dispose();
   }
 
+  Widget _buildHomeBody() {
+    return ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        Padding(
+          padding: EdgeInsets.all(16.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 180.h,
+                child: PageView(
+                  controller: _pageController,
+                  onPageChanged: (index) {
+                    setState(() {
+                      _currentBannerIndex = index;
+                    });
+                  },
+                  children: [
+                    bannerCard(
+                      context,
+                      'https://picsum.photos/seed/b1/400/200',
+                      'For Sale',
+                      'Selected items',
+                    ),
+                    bannerCard(
+                      context,
+                      'https://picsum.photos/seed/b2/400/200',
+                      'Premium',
+                      'Luxury fabrics',
+                    ),
+                    bannerCard(
+                      context,
+                      'https://picsum.photos/seed/b3/400/200',
+                      'Discover',
+                      'New Arrivals',
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 8.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(3, (index) {
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: 4.w),
+                    width: 8.w,
+                    height: 8.h,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _currentBannerIndex == index
+                          ? Colors.black87
+                          : Colors.grey.shade400,
+                    ),
+                  );
+                }),
+              ),
+              SizedBox(height: 16.h),
+              ...appCategories.map(
+                (cat) => categoryCard(
+                  context: context,
+                  title: cat.titleEn,
+                  tags: cat.tags,
+                  image: cat.imageUrl,
+                ),
+              ),
+              SizedBox(height: 16.h),
+              Text(
+                'Support Tags',
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 8.h),
+              Wrap(
+                spacing: 8.w,
+                runSpacing: 8.h,
+                children: _supportTags.map((t) {
+                  return ActionChip(
+                    label: Text(t),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRouteNames.products,
+                        arguments: t,
+                      );
+                    },
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
+        ),
+        const AppFooter(),
+        SizedBox(height: 80.h),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      _buildHomeBody(),
+      const CategoriesView(),
+      const CartView(),
+      const FavouritesView(),
+      const Center(child: Text('Profile')),
+    ];
+
     return Scaffold(
-      drawer: CustomDrawer(),
-
+      drawer: const CustomDrawer(),
       backgroundColor: AppColors.background,
-      appBar: const CustomAppBar(),
-
-      body: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(16.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Slider Banners
-                SizedBox(
-                  height: 180.h,
-                  child: PageView(
-                    controller: _pageController,
-                    onPageChanged: (index) {
-                      setState(() {
-                        _currentBannerIndex = index;
-                      });
-                    },
-                    children: [
-                      bannerCard(
-                        'https://picsum.photos/seed/b1/400/200',
-                        'For Sale',
-                        'Selected items',
-                      ),
-                      bannerCard(
-                        'https://picsum.photos/seed/b2/400/200',
-                        'Premium',
-                        'Luxury fabrics',
-                      ),
-                      bannerCard(
-                        'https://picsum.photos/seed/b3/400/200',
-                        'Discover',
-                        'New Arrivals',
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 8.h),
-                // Dots Indicator
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(3, (index) {
-                    return Container(
-                      margin: EdgeInsets.symmetric(horizontal: 4.w),
-                      width: 8.w,
-                      height: 8.h,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _currentBannerIndex == index
-                            ? Colors.black87
-                            : Colors.grey.shade400,
-                      ),
-                    );
-                  }),
-                ),
-                SizedBox(height: 16.h),
-                // Categories
-                categoryCard(
-                  'Abayas',
-                  ['Casual', 'Evening', 'Umrah'],
-                  'assets/abayaa.jpg',
-                  context,
-                ),
-                categoryCard(
-                  'Fabrics',
-                  ['Cotton', 'Silk', 'Wool'],
-                  'assets/clothes.jpg',
-                  context,
-                ),
-                categoryCard(
-                  'Clothes',
-                  ['Men', 'Women', 'Kids'],
-                  'assets/fabrics-bg.jpg',
-                  context,
-                ),
-                categoryCard(
-                  'Leather',
-                  ['Bags', 'Wallets', 'Accessories'],
-                  'assets/lather-bg.jpg',
-                  context,
-                ),
-                categoryCard(
-                  'Giveaways',
-                  ['Active', 'Past', 'Upcoming'],
-                  'assets/giveaways.jpg',
-                  context,
-                ),
-                SizedBox(height: 16.h),
-                Text(
-                  'Support Tags',
-                  style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8.h),
-                Wrap(
-                  spacing: 8.w,
-                  runSpacing: 8.h,
-                  children: _supportTags.map((t) {
-                    return ActionChip(
-                      label: Text(t),
-                      onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          AppRouteNames.products,
-                          arguments: t,
-                        );
-                      },
-                    );
-                  }).toList(),
-                ),
-              ],
-            ),
-          ),
-          const AppFooter(),
-          SizedBox(height: 80.h), // for bottom nav
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
-        onPressed: () {},
-        child: const Icon(Icons.chat),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: AppColors.primary,
-        unselectedItemColor: Colors.grey,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard),
-            label: 'Offers',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline),
-            label: 'Support',
-          ),
-        ],
+      appBar: _selectedIndex == 0 ? const CustomAppBar() : null,
+      body: pages[_selectedIndex],
+      bottomNavigationBar: MainBottomNavBar(
+        currentIndex: _selectedIndex,
+        onTap: (index) => setState(() => _selectedIndex = index),
       ),
     );
   }

@@ -27,7 +27,7 @@ class CartManager extends ChangeNotifier {
 
   List<CartItem> get items => _items;
 
-  int get totalItems => _items.fold(0, (sum, item) => sum + item.quantity);
+  int get totalItems => _items.length;
 
   double get subtotal => _items.fold(0, (sum, item) => sum + (item.price * item.quantity));
   
@@ -56,6 +56,18 @@ class CartManager extends ChangeNotifier {
       _items[index].quantity += change;
       if (_items[index].quantity <= 0) {
         _items.removeAt(index);
+      }
+      notifyListeners();
+    }
+  }
+
+  void setItemQuantity(String id, int quantity) {
+    final index = _items.indexWhere((item) => item.id == id);
+    if (index >= 0) {
+      if (quantity <= 0) {
+        _items.removeAt(index);
+      } else {
+        _items[index].quantity = quantity;
       }
       notifyListeners();
     }
