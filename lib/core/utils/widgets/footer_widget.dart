@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        _TopFooter(),
-        _BottomFooter(),
-      ],
-    );
-}
+    return Column(children: const [_TopFooter(), _BottomFooter()]);
+  }
 }
 
 class _TopFooter extends StatelessWidget {
@@ -33,20 +30,41 @@ class _TopFooter extends StatelessWidget {
             child: Image.asset(
               'assets/logo.png',
               height: 150.h,
-              errorBuilder: (c, e, s) => Container(height: 150.h, width: 150.w, color: Colors.grey),
+              errorBuilder: (c, e, s) =>
+                  Container(height: 150.h, width: 150.w, color: Colors.grey),
             ),
           ),
           SizedBox(height: 16.h),
           Text(
             "THE FIRST DESTINATION FOR ALL\n✨ WOMEN'S DETAILS",
-            style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 13.sp, letterSpacing: 1),
+            style: TextStyle(
+              color: textColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 13.sp,
+              letterSpacing: 1,
+            ),
           ),
           SizedBox(height: 24.h),
-          const _InfoRow('assets/footer-1.jpg', 'COMMERCIAL REGISTRATION', '1010166254'),
+          const _InfoRow(
+            'assets/footer-1.jpg',
+            'COMMERCIAL REGISTRATION',
+            '1010166254',
+          ),
           SizedBox(height: 16.h),
-          const _InfoRow('assets/footer-2.jpg', 'TAX NUMBER', '300076485500003'),
+          const _InfoRow(
+            'assets/footer-2.jpg',
+            'TAX NUMBER',
+            '300076485500003',
+          ),
           SizedBox(height: 32.h),
-          Text('Important Links', style: TextStyle(color: textColor, fontSize: 20.sp, fontWeight: FontWeight.bold)),
+          Text(
+            'Important Links',
+            style: TextStyle(
+              color: textColor,
+              fontSize: 20.sp,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           SizedBox(height: 16.h),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,21 +73,48 @@ class _TopFooter extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _FooterLink('Blog', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.blog);
-                    }),
-                    _FooterLink('Return Policy', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.returnPolicy);
-                    }),
-                    _FooterLink('Terms & Conditions', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.termsConditions);
-                    }),
-                    _FooterLink('Delivery Service', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.deliveryService);
-                    }),
-                    _FooterLink('Privacy Policy', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.privacyPolicy);
-                    }),
+                    _FooterLink(
+                      'Blog',
+                      onTap: () {
+                        Navigator.pushNamed(context, AppRouteNames.blog);
+                      },
+                    ),
+                    _FooterLink(
+                      'Return Policy',
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          AppRouteNames.returnPolicy,
+                        );
+                      },
+                    ),
+                    _FooterLink(
+                      'Terms & Conditions',
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          AppRouteNames.termsConditions,
+                        );
+                      },
+                    ),
+                    _FooterLink(
+                      'Delivery Service',
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          AppRouteNames.deliveryService,
+                        );
+                      },
+                    ),
+                    _FooterLink(
+                      'Privacy Policy',
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          AppRouteNames.privacyPolicy,
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -77,51 +122,108 @@ class _TopFooter extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _FooterLink('Contact Us', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.contactUs);
-                    }),
-                    _FooterLink('Return Method', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.returnMethod);
-                    }),
-                    _FooterLink('Gift Policy', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.giftPolicy);
-                    }),
-                    _FooterLink('Sad VIP Points', onTap: () {
-                      Navigator.pushNamed(context, AppRouteNames.sadVipPoints);
-                    }),
+                    _FooterLink(
+                      'Contact Us',
+                      onTap: () {
+                        Navigator.pushNamed(context, AppRouteNames.contactUs);
+                      },
+                    ),
+                    _FooterLink(
+                      'Return Method',
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          AppRouteNames.returnMethod,
+                        );
+                      },
+                    ),
+                    _FooterLink(
+                      'Gift Policy',
+                      onTap: () {
+                        Navigator.pushNamed(context, AppRouteNames.giftPolicy);
+                      },
+                    ),
+                    _FooterLink(
+                      'Sad VIP Points',
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          AppRouteNames.sadVipPoints,
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
             ],
           ),
           SizedBox(height: 32.h),
-          Center(child: Text('Contact Us', style: TextStyle(color: textColor, fontSize: 20.sp, fontWeight: FontWeight.bold))),
+          Center(
+            child: Text(
+              'Contact Us',
+              style: TextStyle(
+                color: textColor,
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           SizedBox(height: 16.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const _ContactButton('Email', Icons.email),
+              _ContactButton(
+                'Email',
+                Icons.email,
+                onTap: () => _launchURL(context, 'mailto:info@store.com'),
+              ),
               SizedBox(width: 8.w),
-              const _ContactButton('Phone', Icons.phone),
+              _ContactButton(
+                'Phone',
+                Icons.phone,
+                onTap: () => _launchURL(context, 'tel:+966565532971'),
+              ),
               SizedBox(width: 8.w),
-              const _ContactButton('WhatsApp', Icons.chat),
+              _ContactButton(
+                'WhatsApp',
+                Icons.chat,
+                onTap: () => _launchURL(context, 'https://wa.me/966565532971'),
+              ),
             ],
           ),
-          SizedBox(height: 32.h),
-          Center(child: Text('Download Mobile App', style: TextStyle(color: textColor, fontSize: 18.sp, fontWeight: FontWeight.bold))),
           SizedBox(height: 16.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network('https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg', height: 40.h, errorBuilder: (c, e, s) => SizedBox(height: 40.h)),
+              Image.network(
+                'https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg',
+                height: 40.h,
+                errorBuilder: (c, e, s) => SizedBox(height: 40.h),
+              ),
               SizedBox(width: 8.w),
-              Image.network('https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg', height: 40.h, errorBuilder: (c, e, s) => SizedBox(height: 40.h)),
+              Image.network(
+                'https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg',
+                height: 40.h,
+                errorBuilder: (c, e, s) => SizedBox(height: 40.h),
+              ),
             ],
           ),
           SizedBox(height: 32.h),
-          Center(child: Image.asset('assets/sbc.jpg', height: 60.h, errorBuilder: (c, e, s) => Container(height: 60.h, width: 60.w, color: Colors.grey))),
+          Center(
+            child: Image.asset(
+              'assets/sbc.jpg',
+              height: 60.h,
+              errorBuilder: (c, e, s) =>
+                  Container(height: 60.h, width: 60.w, color: Colors.grey),
+            ),
+          ),
           SizedBox(height: 8.h),
-          const Center(child: Text('Certified on the Business Platform', style: TextStyle(color: textColor, fontWeight: FontWeight.bold))),
+          const Center(
+            child: Text(
+              'Certified on the Business Platform',
+              style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+            ),
+          ),
         ],
       ),
     );
@@ -139,14 +241,35 @@ class _InfoRow extends StatelessWidget {
     const textColor = Color(0xFF003829);
     return Row(
       children: [
-        Image.asset(imagePath, width: 50.w, height: 50.h, errorBuilder: (c, e, s) => Container(width: 50.w, height: 50.h, color: Colors.grey)),
+        Image.asset(
+          imagePath,
+          width: 50.w,
+          height: 50.h,
+          errorBuilder: (c, e, s) =>
+              Container(width: 50.w, height: 50.h, color: Colors.grey),
+        ),
         SizedBox(width: 12.w),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 12.sp, letterSpacing: 0.5)),
+            Text(
+              title,
+              style: TextStyle(
+                color: textColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 12.sp,
+                letterSpacing: 0.5,
+              ),
+            ),
             SizedBox(height: 4.h),
-            Text(value, style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 14.sp)),
+            Text(
+              value,
+              style: TextStyle(
+                color: textColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 14.sp,
+              ),
+            ),
           ],
         ),
       ],
@@ -165,7 +288,13 @@ class _FooterLink extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 16.h),
       child: InkWell(
         onTap: onTap,
-        child: Text(text, style: const TextStyle(color: Color(0xFF003829), fontWeight: FontWeight.bold)),
+        child: Text(
+          text,
+          style: const TextStyle(
+            color: Color(0xFF003829),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
@@ -174,22 +303,36 @@ class _FooterLink extends StatelessWidget {
 class _ContactButton extends StatelessWidget {
   final String title;
   final IconData icon;
-  const _ContactButton(this.title, this.icon);
+  final VoidCallback? onTap;
+  const _ContactButton(this.title, this.icon, {this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-      decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFF003829)),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
         borderRadius: BorderRadius.circular(8.r),
-      ),
-      child: Row(
-        children: [
-          Text(title, style: const TextStyle(color: Color(0xFF003829), fontWeight: FontWeight.bold)),
-          SizedBox(width: 8.w),
-          Icon(icon, color: const Color(0xFF003829), size: 16.sp),
-        ],
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+          decoration: BoxDecoration(
+            border: Border.all(color: const Color(0xFF003829)),
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          child: Row(
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Color(0xFF003829),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(width: 8.w),
+              Icon(icon, color: const Color(0xFF003829), size: 16.sp),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -211,9 +354,15 @@ class _BottomFooter extends StatelessWidget {
               text: 'All rights reserved © ',
               style: TextStyle(color: Colors.orangeAccent),
               children: [
-                TextSpan(text: 'Saad Store', style: TextStyle(color: Colors.blue)),
+                TextSpan(
+                  text: 'Saad Store',
+                  style: TextStyle(color: Colors.blue),
+                ),
                 TextSpan(text: ' 2026 - By\n'),
-                TextSpan(text: 'GMTWEB', style: TextStyle(color: Colors.blue)),
+                TextSpan(
+                  text: 'GMTWEB',
+                  style: TextStyle(color: Colors.blue),
+                ),
               ],
             ),
             textAlign: TextAlign.center,
@@ -238,11 +387,12 @@ class _BottomFooter extends StatelessWidget {
             runSpacing: 12.h,
             alignment: WrapAlignment.center,
             children: const [
-              _SocialIcon(Icons.close),
-              _SocialIcon(Icons.camera_alt),
-              _SocialIcon(Icons.music_note),
-              _SocialIcon(Icons.play_arrow),
-              _SocialIcon(Icons.facebook),
+              _SocialIcon(FontAwesomeIcons.facebookF),
+              _SocialIcon(FontAwesomeIcons.youtube),
+              _SocialIcon(FontAwesomeIcons.tiktok),
+              _SocialIcon(FontAwesomeIcons.snapchat),
+              _SocialIcon(FontAwesomeIcons.xTwitter),
+              _SocialIcon(FontAwesomeIcons.instagram),
             ],
           ),
           SizedBox(height: 24.h),
@@ -266,13 +416,17 @@ class _PaymentBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.r),
       ),
       clipBehavior: Clip.antiAlias,
-      child: Image.asset(imagePath, fit: BoxFit.contain, errorBuilder: (c, e, s) => const SizedBox()),
+      child: Image.asset(
+        imagePath,
+        fit: BoxFit.contain,
+        errorBuilder: (c, e, s) => const SizedBox(),
+      ),
     );
   }
 }
 
 class _SocialIcon extends StatelessWidget {
-  final IconData icon;
+  final FaIconData icon;
   const _SocialIcon(this.icon);
 
   @override
@@ -285,7 +439,38 @@ class _SocialIcon extends StatelessWidget {
         color: Colors.transparent,
         border: Border.all(color: Colors.orangeAccent, width: 1.w),
       ),
-      child: Icon(icon, color: Colors.white, size: 20.sp),
+      child: Center(
+        child: FaIcon(icon, color: Colors.white, size: 20.sp),
+      ),
     );
+  }
+}
+
+Future<void> _launchURL(BuildContext context, String urlString) async {
+  try {
+    final Uri uri = Uri.parse(urlString);
+    bool launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+    if (!launched) {
+      launched = await launchUrl(uri);
+    }
+    if (!launched && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not open link: $urlString')),
+      );
+    }
+  } catch (e) {
+    debugPrint('Error launching URL: $e');
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            e.toString().contains('MissingPluginException')
+                ? 'Please restart the app completely (stop and run again) to load the new url_launcher package!'
+                : 'Error: $e',
+          ),
+          duration: const Duration(seconds: 5),
+        ),
+      );
+    }
   }
 }

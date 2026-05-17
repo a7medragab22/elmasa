@@ -1,5 +1,7 @@
 import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/cart_manager.dart';
+import 'package:elmasa/core/routes/app_routes_name.dart';
+import 'package:elmasa/features/products/data/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,17 +30,31 @@ class CartItemCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Product Image
-          Container(
-            width: 100.w,
-            height: 100.h,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.r),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/placeholder.png'),
-                fit: BoxFit.cover,
+          GestureDetector(
+            onTap: () {
+              final product = mockProducts.firstWhere(
+                (p) => p.id == item.id,
+                orElse: () => mockProducts.first,
+              );
+              Navigator.pushNamed(
+                context,
+                AppRouteNames.productDetails,
+                arguments: product,
+              );
+            },
+            child: Container(
+              width: 100.w,
+              height: 100.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.r),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/placeholder.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
+
           SizedBox(width: 16.w),
           // Product Details
           Expanded(

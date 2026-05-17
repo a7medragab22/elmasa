@@ -2,6 +2,7 @@ import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/cart_manager.dart';
 import 'package:elmasa/core/utils/favourites_manager.dart';
 import 'package:elmasa/features/products/data/models/product_model.dart';
+import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,15 +30,21 @@ class WishlistItemCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Product Image
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
-                    image: DecorationImage(
-                      image: AssetImage(product.imageUrl.isNotEmpty ? product.imageUrl : 'assets/images/placeholder.png'),
-                      fit: BoxFit.cover,
-                      onError: (exception, stackTrace) => const Icon(Icons.image_not_supported),
+                child: GestureDetector(
+                  onTap: () => Navigator.pushNamed(
+                    context,
+                    AppRouteNames.productDetails,
+                    arguments: product,
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+                      image: DecorationImage(
+                        image: AssetImage(product.imageUrl.isNotEmpty ? product.imageUrl : 'assets/images/placeholder.png'),
+                        fit: BoxFit.cover,
+                        onError: (exception, stackTrace) => const Icon(Icons.image_not_supported),
+                      ),
                     ),
                   ),
                 ),

@@ -1,6 +1,6 @@
 import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/widgets/footer_widget.dart';
-import 'package:elmasa/core/utils/widgets/main_app_bar.dart';
+import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +12,7 @@ class GiftPolicyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const MainAppBar(),
+      appBar: const CustomAppBar(),
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
