@@ -16,6 +16,8 @@ import 'package:elmasa/features/sad_vip_points/presentation/pages/sad_vip_points
 import 'package:elmasa/features/products/presentation/pages/products_view.dart';
 import 'package:elmasa/features/cart/presentation/pages/cart_view.dart';
 import 'package:elmasa/features/checkout/presentation/pages/checkout_view.dart';
+import 'package:elmasa/features/products/presentation/pages/product_details_view.dart';
+import 'package:elmasa/features/products/data/models/product_model.dart';
 import 'app_routes_name.dart';
 
 class AppRoutes {
@@ -62,6 +64,12 @@ class AppRoutes {
       case AppRouteNames.products:
         final tag = settings.arguments as String?;
         return MaterialPageRoute(builder: (_) => ProductsView(tag: tag));
+      case AppRouteNames.productDetails:
+        final product = settings.arguments as Product;
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => ProductDetailsView(product: product),
+        );
       case AppRouteNames.cart:
         return MaterialPageRoute(builder: (_) => const CartView());
       case AppRouteNames.checkout:

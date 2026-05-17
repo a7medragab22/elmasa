@@ -1,15 +1,14 @@
 import 'dart:async';
+import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/features/cart/presentation/pages/cart_view.dart';
 import 'package:elmasa/features/favourites/presentation/pages/favourites_view.dart';
 import 'package:elmasa/features/categories/presentation/pages/categories_view.dart';
 import 'package:elmasa/features/categories/data/models/category_model.dart';
-import 'package:elmasa/core/utils/cart_manager.dart';
 import 'package:elmasa/core/utils/widgets/footer_widget.dart';
 import 'package:elmasa/features/home/presentation/widgets/banner_card.dart';
 import 'package:elmasa/features/home/presentation/widgets/category_card.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/core/themes/app_colors.dart';
-import 'package:elmasa/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:elmasa/features/home/presentation/widgets/custom_drawer_widget.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -93,9 +92,24 @@ class _HomeViewState extends State<HomeView> {
                     });
                   },
                   children: [
-                    bannerCard(context, 'https://picsum.photos/seed/b1/400/200', 'For Sale', 'Selected items'),
-                    bannerCard(context, 'https://picsum.photos/seed/b2/400/200', 'Premium', 'Luxury fabrics'),
-                    bannerCard(context, 'https://picsum.photos/seed/b3/400/200', 'Discover', 'New Arrivals'),
+                    bannerCard(
+                      context,
+                      'https://picsum.photos/seed/b1/400/200',
+                      'For Sale',
+                      'Selected items',
+                    ),
+                    bannerCard(
+                      context,
+                      'https://picsum.photos/seed/b2/400/200',
+                      'Premium',
+                      'Luxury fabrics',
+                    ),
+                    bannerCard(
+                      context,
+                      'https://picsum.photos/seed/b3/400/200',
+                      'Discover',
+                      'New Arrivals',
+                    ),
                   ],
                 ),
               ),
@@ -109,20 +123,23 @@ class _HomeViewState extends State<HomeView> {
                     height: 8.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: _currentBannerIndex == index ? Colors.black87 : Colors.grey.shade400,
+                      color: _currentBannerIndex == index
+                          ? Colors.black87
+                          : Colors.grey.shade400,
                     ),
                   );
                 }),
               ),
               SizedBox(height: 16.h),
-              ...appCategories.map((cat) => categoryCard(
-                context, 
-                cat.titleEn, 
-                cat.tags, 
-                cat.imageUrl
-              )),
+              ...appCategories.map(
+                (cat) =>
+                    categoryCard(context, cat.titleEn, cat.tags, cat.imageUrl),
+              ),
               SizedBox(height: 16.h),
-              Text('Support Tags', style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
+              Text(
+                'Support Tags',
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+              ),
               SizedBox(height: 8.h),
               Wrap(
                 spacing: 8.w,
@@ -131,7 +148,11 @@ class _HomeViewState extends State<HomeView> {
                   return ActionChip(
                     label: Text(t),
                     onPressed: () {
-                      Navigator.pushNamed(context, AppRouteNames.products, arguments: t);
+                      Navigator.pushNamed(
+                        context,
+                        AppRouteNames.products,
+                        arguments: t,
+                      );
                     },
                   );
                 }).toList(),
