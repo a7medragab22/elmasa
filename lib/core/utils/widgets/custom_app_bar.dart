@@ -24,9 +24,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           hintText: 'Search...',
           prefixIcon: Icon(Icons.search, size: 20.sp, color: Colors.grey),
         ),
-        onChanged: (value) {
-          print(value);
-        },
+        onChanged: (value) {},
       ),
       actions: [
         Padding(

@@ -1,4 +1,3 @@
-import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/features/categories/data/models/category_model.dart';
 import 'package:elmasa/features/categories/presentation/widgets/category_card.dart';

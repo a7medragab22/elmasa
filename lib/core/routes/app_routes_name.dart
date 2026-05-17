@@ -17,4 +17,5 @@ class AppRouteNames {
   static const String forgotPassword = '/forgot-password';
   static const String resetPassword = '/reset-password';
   static const String verification = '/verification';
+  static const String productDetails = '/product-details';
 }

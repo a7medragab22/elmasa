@@ -2,6 +2,7 @@ import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/cart_manager.dart';
 import 'package:elmasa/core/utils/favourites_manager.dart';
 import 'package:elmasa/features/products/data/models/product_model.dart';
+import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +19,7 @@ class ProductItemCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -27,66 +28,72 @@ class ProductItemCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image Section
           Expanded(
             flex: 3,
-            child: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
-                    image: const DecorationImage(
-                      image: AssetImage('assets/images/placeholder.png'),
-                      fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: () => Navigator.pushNamed(
+                context,
+                AppRouteNames.productDetails,
+                arguments: product,
+              ),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+                      image: const DecorationImage(
+                        image: AssetImage('assets/images/placeholder.png'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                Positioned(
-                  top: 10,
-                  right: 10,
-                  child: ListenableBuilder(
-                    listenable: FavouritesManager.instance,
-                    builder: (context, _) {
-                      final isFav = FavouritesManager.instance.isFavourite(product.id);
-                      return GestureDetector(
-                        onTap: () => FavouritesManager.instance.toggleFavourite(product),
-                        child: Container(
-                          padding: EdgeInsets.all(6.w),
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            isFav ? Icons.favorite : Icons.favorite_border,
-                            color: isFav ? Colors.red : Colors.grey,
-                            size: 20.sp,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                if (product.isNew)
                   Positioned(
                     top: 10,
-                    left: 10,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(4.r),
-                      ),
-                      child: Text(
-                        'NEW',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.bold,
+                    right: 10,
+                    child: ListenableBuilder(
+                      listenable: FavouritesManager.instance,
+                      builder: (context, _) {
+                        final isFav = FavouritesManager.instance.isFavourite(product.id);
+                        return GestureDetector(
+                          onTap: () => FavouritesManager.instance.toggleFavourite(product),
+                          child: Container(
+                            padding: EdgeInsets.all(6.w),
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              isFav ? Icons.favorite : Icons.favorite_border,
+                              color: isFav ? Colors.red : Colors.grey,
+                              size: 20.sp,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  if (product.isNew)
+                    Positioned(
+                      top: 10,
+                      left: 10,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(4.r),
+                        ),
+                        child: Text(
+                          'NEW',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
           // Info Section
