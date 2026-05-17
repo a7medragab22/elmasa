@@ -1,4 +1,3 @@
-import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/widgets/footer_widget.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:elmasa/features/products/presentation/widgets/product_filter_drawer.dart';

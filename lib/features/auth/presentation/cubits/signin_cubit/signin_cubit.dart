@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:elmasa/features/auth/domain/repos/auth_repo.dart';
 import 'package:elmasa/features/auth/presentation/cubits/signin_cubit/signin_state.dart';
 

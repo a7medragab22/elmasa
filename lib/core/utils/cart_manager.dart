@@ -61,6 +61,18 @@ class CartManager extends ChangeNotifier {
     }
   }
 
+  void setItemQuantity(String id, int quantity) {
+    final index = _items.indexWhere((item) => item.id == id);
+    if (index >= 0) {
+      if (quantity <= 0) {
+        _items.removeAt(index);
+      } else {
+        _items[index].quantity = quantity;
+      }
+      notifyListeners();
+    }
+  }
+
   void clearCart() {
     _items.clear();
     notifyListeners();

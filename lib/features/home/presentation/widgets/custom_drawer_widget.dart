@@ -21,16 +21,19 @@ class CustomDrawer extends StatelessWidget {
                   const Text(
                     "Menu",
                     style: TextStyle(
-                      fontSize: 22, 
+                      fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppColors.secondaryYellow,
                     ),
                   ),
                   IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(Icons.close, color: Colors.white),
+                    icon: const Icon(
+                      Icons.close,
+                      color: AppColors.secondaryYellow,
+                    ),
                   ),
                 ],
               ),
@@ -45,47 +48,74 @@ class CustomDrawer extends StatelessWidget {
                   DrawerItem(
                     icon: Icons.home_outlined,
                     title: "Home",
-                    onTap: () => Navigator.pushNamedAndRemoveUntil(context, AppRouteNames.home, (route) => false),
+                    onTap: () => Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      AppRouteNames.home,
+                      (route) => false,
+                    ),
                   ),
                   DrawerItem(
                     icon: Icons.inventory_2_outlined,
                     title: "Fabrics",
-                    onTap: () => Navigator.pushNamed(context, AppRouteNames.products, arguments: "Fabrics"),
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRouteNames.products,
+                      arguments: "Fabrics",
+                    ),
                   ),
                   DrawerItem(
                     icon: Icons.checkroom_outlined,
                     title: "Abayas",
-                    onTap: () => Navigator.pushNamed(context, AppRouteNames.products, arguments: "Abayas"),
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRouteNames.products,
+                      arguments: "Abayas",
+                    ),
                   ),
                   DrawerItem(
                     icon: Icons.checkroom,
                     title: "Clothes",
-                    onTap: () => Navigator.pushNamed(context, AppRouteNames.products, arguments: "Clothes"),
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRouteNames.products,
+                      arguments: "Clothes",
+                    ),
                   ),
                   DrawerItem(
                     icon: Icons.inventory_2,
                     title: "Leather",
-                    onTap: () => Navigator.pushNamed(context, AppRouteNames.products, arguments: "Leather"),
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRouteNames.products,
+                      arguments: "Leather",
+                    ),
                   ),
                   DrawerItem(
                     icon: Icons.auto_awesome_outlined,
                     title: "Giveaways",
-                    onTap: () => Navigator.pushNamed(context, AppRouteNames.products, arguments: "Giveaways"),
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRouteNames.products,
+                      arguments: "Giveaways",
+                    ),
                   ),
                   DrawerItem(
-                    icon: Icons.mail_outline, 
+                    icon: Icons.mail_outline,
                     title: "Contact Us",
-                    onTap: () => Navigator.pushNamed(context, AppRouteNames.contactUs),
+                    onTap: () =>
+                        Navigator.pushNamed(context, AppRouteNames.contactUs),
                   ),
                   DrawerItem(
                     icon: Icons.app_registration,
                     title: 'Register',
-                    onTap: () => Navigator.pushNamed(context, AppRouteNames.signup),
+                    onTap: () =>
+                        Navigator.pushNamed(context, AppRouteNames.signup),
                   ),
                   DrawerItem(
                     icon: Icons.login,
                     title: 'Login',
-                    onTap: () => Navigator.pushNamed(context, AppRouteNames.signin),
+                    onTap: () =>
+                        Navigator.pushNamed(context, AppRouteNames.signin),
                   ),
                 ],
               ),
@@ -114,10 +144,13 @@ class DrawerItem extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          leading: Icon(icon, color: Colors.white),
+          leading: Icon(icon, color: AppColors.secondaryYellow),
           title: Text(
-            title, 
-            style: const TextStyle(fontSize: 16, color: Colors.white),
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              color: AppColors.secondaryYellow,
+            ),
           ),
           onTap: onTap,
         ),
