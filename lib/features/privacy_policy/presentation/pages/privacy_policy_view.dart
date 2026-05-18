@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class PrivacyPolicyView extends StatelessWidget {
   const PrivacyPolicyView({super.key});
@@ -29,7 +30,7 @@ class PrivacyPolicyView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Home',
+                        S.of(context).home,
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 14.sp,
@@ -42,7 +43,7 @@ class PrivacyPolicyView extends StatelessWidget {
                       size: 20.sp,
                     ),
                     Text(
-                      'Privacy Policy',
+                      S.of(context).privacyPolicy,
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 14.sp,
@@ -72,7 +73,7 @@ class PrivacyPolicyView extends StatelessWidget {
                     children: [
                       Center(
                         child: Text(
-                          'Privacy Policy',
+                          S.of(context).privacyPolicy,
                           style: TextStyle(
                             color: const Color(0xFFD4A373),
                             fontSize: 28.sp,
@@ -82,7 +83,7 @@ class PrivacyPolicyView extends StatelessWidget {
                       ),
                       SizedBox(height: 32.h),
                       Text(
-                        'At Saad, we respect your privacy and your right to choose how your information is used. One of our top priorities is protecting the information we hold.',
+                        S.of(context).privacyPolicyDesc1,
                         style: TextStyle(
                           color: const Color(0xFFD4A373),
                           fontSize: 16.sp,
@@ -91,7 +92,7 @@ class PrivacyPolicyView extends StatelessWidget {
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'We do not share customer information (including email addresses) with any third party unless necessary to provide the products and services we offer. We will only disclose information when we have the right to do so.',
+                        S.of(context).privacyPolicyDesc2,
                         style: TextStyle(
                           color: const Color(0xFFD4A373),
                           fontSize: 16.sp,
@@ -118,7 +119,7 @@ class PrivacyPolicyView extends StatelessWidget {
                             SizedBox(width: 16.w),
                             Expanded(
                               child: Text(
-                                'Payment Security: We do not store any details of your credit card.',
+                                S.of(context).paymentSecurityDesc,
                                 style: TextStyle(
                                   color: const Color(0xFF003829),
                                   fontSize: 16.sp,
@@ -133,7 +134,7 @@ class PrivacyPolicyView extends StatelessWidget {
                       SizedBox(height: 32.h),
 
                       Text(
-                        "If you have any questions or concerns about Saad's access to or use of your personal information, please contact us via email or at phone number 920010063.",
+                        S.of(context).privacyPolicyContact,
                         style: TextStyle(
                           color: const Color(0xFFD4A373),
                           fontSize: 16.sp,

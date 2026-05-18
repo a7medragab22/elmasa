@@ -3,6 +3,7 @@ import 'package:elmasa/core/utils/cart_manager.dart';
 import 'package:elmasa/features/checkout/presentation/widgets/checkout_section_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CheckoutSummarySection extends StatelessWidget {
   const CheckoutSummarySection({super.key});
@@ -12,13 +13,13 @@ class CheckoutSummarySection extends StatelessWidget {
     final manager = CartManager.instance;
 
     return CheckoutSectionCard(
-      title: 'Order Summary',
+      title: S.of(context).orderSummary,
       children: [
-        _buildSummaryRow('Subtotal', '${manager.subtotal.toStringAsFixed(2)} SAR'),
+        _buildSummaryRow(S.of(context).subtotal, '${manager.subtotal.toStringAsFixed(2)} ${S.of(context).sar}'),
         SizedBox(height: 12.h),
-        _buildSummaryRow('VAT (15%)', '${manager.vat.toStringAsFixed(2)} SAR'),
+        _buildSummaryRow(S.of(context).vat, '${manager.vat.toStringAsFixed(2)} ${S.of(context).sar}'),
         SizedBox(height: 12.h),
-        _buildSummaryRow('Shipping', 'FREE', isGreen: true),
+        _buildSummaryRow(S.of(context).shipping, S.of(context).free, isGreen: true),
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 16.0),
           child: Divider(),
@@ -27,7 +28,7 @@ class CheckoutSummarySection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Total Amount',
+              S.of(context).totalAmount,
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
@@ -35,7 +36,7 @@ class CheckoutSummarySection extends StatelessWidget {
               ),
             ),
             Text(
-              'SAR ${manager.total.toStringAsFixed(2)}',
+              '${S.of(context).sar} ${manager.total.toStringAsFixed(2)}',
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.bold,

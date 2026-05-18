@@ -6,6 +6,7 @@ import 'package:elmasa/features/cart/presentation/widgets/cart_item_card.dart';
 import 'package:elmasa/features/cart/presentation/widgets/cart_summary_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -94,9 +95,9 @@ class CartView extends StatelessWidget {
   Widget _buildEmptyState(BuildContext context) {
     return CustomEmptyCard(
       icon: Icons.shopping_cart_outlined,
-      title: 'Your cart is empty',
-      subtitle: 'Add some items to start shopping!',
-      buttonText: 'Start Shopping',
+      title: S.of(context).yourCartIsEmpty,
+      subtitle: S.of(context).addItemsToStartShopping,
+      buttonText: S.of(context).startShopping,
       onButtonPressed: () {
         Navigator.pushNamedAndRemoveUntil(
           context,

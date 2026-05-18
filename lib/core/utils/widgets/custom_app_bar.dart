@@ -1,3 +1,4 @@
+import 'package:elmasa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             borderRadius: BorderRadius.circular(16.r),
             borderSide: const BorderSide(color: Colors.grey),
           ),
-          hintText: 'Search...',
+          hintText: S.of(context).search,
           prefixIcon: Icon(Icons.search, size: 20.sp, color: Colors.grey),
         ),
         onChanged: (value) {},

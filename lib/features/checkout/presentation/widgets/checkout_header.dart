@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CheckoutHeader extends StatelessWidget {
   const CheckoutHeader({super.key});
@@ -14,7 +15,7 @@ class CheckoutHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Checkout',
+            S.of(context).checkout,
             style: TextStyle(
               fontSize: 26.sp,
               fontWeight: FontWeight.bold,
@@ -23,7 +24,7 @@ class CheckoutHeader extends StatelessWidget {
           ),
           SizedBox(height: 4.h),
           Text(
-            'Complete your order',
+            S.of(context).completeYourOrder,
             style: TextStyle(
               fontSize: 14.sp,
               color: Colors.grey.shade500,

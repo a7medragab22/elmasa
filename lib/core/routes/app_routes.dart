@@ -3,6 +3,7 @@ import 'package:elmasa/features/auth/presentation/views/reset_password_view.dart
 import 'package:elmasa/features/auth/presentation/views/signin_view.dart';
 import 'package:elmasa/features/auth/presentation/views/verification_view.dart';
 import 'package:flutter/material.dart';
+import 'package:elmasa/generated/l10n.dart';
 import 'package:elmasa/features/home/presentation/pages/home_view.dart';
 import 'package:elmasa/features/blog/presentation/pages/blog_view.dart';
 import 'package:elmasa/features/return_policy/presentation/pages/return_policy_view.dart';
@@ -76,8 +77,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CheckoutView());
       default:
         return MaterialPageRoute(
-          builder: (_) =>
-              const Scaffold(body: Center(child: Text('Route not found'))),
+          builder: (context) =>
+              Scaffold(body: Center(child: Text(S.of(context).routeNotFound))),
         );
     }
   }

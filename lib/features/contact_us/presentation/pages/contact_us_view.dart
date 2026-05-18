@@ -5,6 +5,7 @@ import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ContactUsView extends StatelessWidget {
   const ContactUsView({super.key});
@@ -30,7 +31,7 @@ class ContactUsView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Home',
+                        S.of(context).home,
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 14.sp,
@@ -43,7 +44,7 @@ class ContactUsView extends StatelessWidget {
                       size: 20.sp,
                     ),
                     Text(
-                      'Contact Us',
+                      S.of(context).contactUs,
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 14.sp,
@@ -59,7 +60,7 @@ class ContactUsView extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'Get in Touch',
+                        S.of(context).getInTouch,
                         style: TextStyle(
                           color: const Color(0xFF4A3B2C),
                           fontSize: 42.sp,
@@ -68,7 +69,7 @@ class ContactUsView extends StatelessWidget {
                       ),
                       SizedBox(height: 16.h),
                       Text(
-                        'We are here to help',
+                        S.of(context).weAreHereToHelp,
                         style: TextStyle(
                           color: const Color(0xFF475569),
                           fontSize: 20.sp,
@@ -84,7 +85,7 @@ class ContactUsView extends StatelessWidget {
                   context,
                   color: const Color(0xFF10B981),
                   icon: Icons.chat, // Using chat as a placeholder for WhatsApp
-                  title: 'Customer Service\nWhatsApp',
+                  title: S.of(context).customerServiceWhatsapp,
                   subtitle: '+966 56 553 2971',
                   onTap: () =>
                       _launchURL(context, 'https://wa.me/966565532971'),
@@ -94,7 +95,7 @@ class ContactUsView extends StatelessWidget {
                   context,
                   color: const Color(0xFF4A3B2C),
                   icon: Icons.email,
-                  title: 'Email',
+                  title: S.of(context).email,
                   subtitle: 'info@store.com',
                   onTap: () => _launchURL(context, 'mailto:info@store.com'),
                 ),
@@ -103,7 +104,7 @@ class ContactUsView extends StatelessWidget {
                   context,
                   color: const Color(0xFF64748B),
                   icon: Icons.headset_mic,
-                  title: 'Unified Phone',
+                  title: S.of(context).unifiedPhone,
                   subtitle: '920010063',
                   onTap: () => _launchURL(context, 'tel:920010063'),
                 ),
@@ -125,7 +126,7 @@ class ContactUsView extends StatelessWidget {
                     children: [
                       Center(
                         child: Text(
-                          'Contact Us',
+                          S.of(context).contactUs,
                           style: TextStyle(
                             color: const Color(0xFF1E293B),
                             fontSize: 24.sp,
@@ -135,17 +136,17 @@ class ContactUsView extends StatelessWidget {
                       ),
                       SizedBox(height: 32.h),
 
-                      _buildInputField('Name', 'Enter your name'),
+                      _buildInputField(S.of(context).name, S.of(context).enterYourName),
                       SizedBox(height: 24.h),
-                      _buildInputField('Email', 'example@email.com'),
+                      _buildInputField(S.of(context).email, S.of(context).emailHint),
                       SizedBox(height: 24.h),
-                      _buildInputField('Phone Number', '05xxxxxxxx'),
+                      _buildInputField(S.of(context).phoneNumber, '05xxxxxxxx'),
                       SizedBox(height: 24.h),
-                      _buildDropdownField('Message Type', 'Select Type'),
+                      _buildDropdownField(context, S.of(context).messageType, S.of(context).selectType),
                       SizedBox(height: 24.h),
                       _buildTextAreaField(
-                        'Message',
-                        'Write your message here...',
+                        S.of(context).message,
+                        S.of(context).writeYourMessageHere,
                       ),
                       SizedBox(height: 32.h),
 
@@ -162,7 +163,7 @@ class ContactUsView extends StatelessWidget {
                           ),
                           icon: const Icon(Icons.send, color: Colors.white),
                           label: Text(
-                            'Send',
+                            S.of(context).send,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18.sp,
@@ -202,7 +203,7 @@ class ContactUsView extends StatelessWidget {
                           ),
                           SizedBox(width: 12.w),
                           Text(
-                            'Working Hours',
+                            S.of(context).workingHours,
                             style: TextStyle(
                               color: const Color(0xFF1E293B),
                               fontSize: 22.sp,
@@ -213,7 +214,7 @@ class ContactUsView extends StatelessWidget {
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'Sunday to Thursday',
+                        S.of(context).sundayToThursday,
                         style: TextStyle(
                           color: const Color(0xFF64748B),
                           fontSize: 18.sp,
@@ -221,7 +222,7 @@ class ContactUsView extends StatelessWidget {
                       ),
                       SizedBox(height: 12.h),
                       Text(
-                        '9:00 AM - 9:00 PM',
+                        S.of(context).workingHoursTime,
                         style: TextStyle(
                           color: const Color(0xFF4A3B2C),
                           fontSize: 18.sp,
@@ -311,7 +312,7 @@ class ContactUsView extends StatelessWidget {
       }
       if (!launched && context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Could not open link: $urlString')),
+          SnackBar(content: Text('${S.of(context).couldNotOpenLink} $urlString')),
         );
       }
     } catch (e) {
@@ -322,7 +323,7 @@ class ContactUsView extends StatelessWidget {
             content: Text(
               e.toString().contains('MissingPluginException')
                   ? 'Please restart the app completely (stop and run again) to load the new url_launcher package!'
-                  : 'Error: $e',
+                  : '${S.of(context).error} $e',
             ),
             duration: const Duration(seconds: 5),
           ),
@@ -364,7 +365,7 @@ class ContactUsView extends StatelessWidget {
     );
   }
 
-  Widget _buildDropdownField(String label, String hint) {
+  Widget _buildDropdownField(BuildContext context, String label, String hint) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -392,11 +393,11 @@ class ContactUsView extends StatelessWidget {
               vertical: 16.h,
             ),
           ),
-          items: const [
-            DropdownMenuItem(value: 'Select Type', child: Text('Select Type')),
-            DropdownMenuItem(value: 'Inquiry', child: Text('Inquiry')),
-            DropdownMenuItem(value: 'Complaint', child: Text('Complaint')),
-            DropdownMenuItem(value: 'Suggestion', child: Text('Suggestion')),
+          items: [
+            DropdownMenuItem(value: 'Select Type', child: Text(S.of(context).selectType)),
+            DropdownMenuItem(value: 'Inquiry', child: Text(S.of(context).inquiry)),
+            DropdownMenuItem(value: 'Complaint', child: Text(S.of(context).complaint)),
+            DropdownMenuItem(value: 'Suggestion', child: Text(S.of(context).suggestion)),
           ],
           onChanged: (value) {},
         ),
