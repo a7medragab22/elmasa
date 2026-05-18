@@ -7,6 +7,7 @@ import 'package:elmasa/features/products/presentation/widgets/product_details_ta
 import 'package:elmasa/features/products/presentation/widgets/product_image_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ProductDetailsView extends StatefulWidget {
   final Product product;
@@ -80,7 +81,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     );
                   }
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Cart updated')),
+                    SnackBar(content: Text(S.of(context).cartUpdated)),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -94,7 +95,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   elevation: 0,
                 ),
                 child: Text(
-                  'Add to Cart',
+                  S.of(context).addToCart,
                   style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -129,7 +130,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   elevation: 0,
                 ),
                 child: Text(
-                  'Buy Now',
+                  S.of(context).buyNow,
                   style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -151,7 +152,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       child: Row(
         children: [
           Text(
-            'Quantity',
+            S.of(context).quantity,
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,

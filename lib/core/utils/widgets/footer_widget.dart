@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
@@ -36,7 +37,7 @@ class _TopFooter extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
           Text(
-            "THE FIRST DESTINATION FOR ALL\n✨ WOMEN'S DETAILS",
+            S.of(context).footerTitle,
             style: TextStyle(
               color: textColor,
               fontWeight: FontWeight.bold,
@@ -45,20 +46,20 @@ class _TopFooter extends StatelessWidget {
             ),
           ),
           SizedBox(height: 24.h),
-          const _InfoRow(
+          _InfoRow(
             'assets/footer-1.jpg',
-            'COMMERCIAL REGISTRATION',
+            S.of(context).commercialRegistration,
             '1010166254',
           ),
           SizedBox(height: 16.h),
-          const _InfoRow(
+          _InfoRow(
             'assets/footer-2.jpg',
-            'TAX NUMBER',
+            S.of(context).taxNumber,
             '300076485500003',
           ),
           SizedBox(height: 32.h),
           Text(
-            'Important Links',
+            S.of(context).importantLinks,
             style: TextStyle(
               color: textColor,
               fontSize: 20.sp,
@@ -74,13 +75,13 @@ class _TopFooter extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _FooterLink(
-                      'Blog',
+                      S.of(context).blog,
                       onTap: () {
                         Navigator.pushNamed(context, AppRouteNames.blog);
                       },
                     ),
                     _FooterLink(
-                      'Return Policy',
+                      S.of(context).returnPolicy,
                       onTap: () {
                         Navigator.pushNamed(
                           context,
@@ -89,7 +90,7 @@ class _TopFooter extends StatelessWidget {
                       },
                     ),
                     _FooterLink(
-                      'Terms & Conditions',
+                      S.of(context).termsConditions,
                       onTap: () {
                         Navigator.pushNamed(
                           context,
@@ -98,7 +99,7 @@ class _TopFooter extends StatelessWidget {
                       },
                     ),
                     _FooterLink(
-                      'Delivery Service',
+                      S.of(context).deliveryService,
                       onTap: () {
                         Navigator.pushNamed(
                           context,
@@ -107,7 +108,7 @@ class _TopFooter extends StatelessWidget {
                       },
                     ),
                     _FooterLink(
-                      'Privacy Policy',
+                      S.of(context).privacyPolicy,
                       onTap: () {
                         Navigator.pushNamed(
                           context,
@@ -123,13 +124,13 @@ class _TopFooter extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _FooterLink(
-                      'Contact Us',
+                      S.of(context).contactUs,
                       onTap: () {
                         Navigator.pushNamed(context, AppRouteNames.contactUs);
                       },
                     ),
                     _FooterLink(
-                      'Return Method',
+                      S.of(context).returnMethod,
                       onTap: () {
                         Navigator.pushNamed(
                           context,
@@ -138,13 +139,13 @@ class _TopFooter extends StatelessWidget {
                       },
                     ),
                     _FooterLink(
-                      'Gift Policy',
+                      S.of(context).giftPolicy,
                       onTap: () {
                         Navigator.pushNamed(context, AppRouteNames.giftPolicy);
                       },
                     ),
                     _FooterLink(
-                      'Sad VIP Points',
+                      S.of(context).sadVipPoints,
                       onTap: () {
                         Navigator.pushNamed(
                           context,
@@ -160,7 +161,7 @@ class _TopFooter extends StatelessWidget {
           SizedBox(height: 32.h),
           Center(
             child: Text(
-              'Contact Us',
+              S.of(context).contactUs,
               style: TextStyle(
                 color: textColor,
                 fontSize: 20.sp,
@@ -173,19 +174,19 @@ class _TopFooter extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _ContactButton(
-                'Email',
+                S.of(context).email,
                 Icons.email,
                 onTap: () => _launchURL(context, 'mailto:info@store.com'),
               ),
               SizedBox(width: 8.w),
               _ContactButton(
-                'Phone',
+                S.of(context).phone,
                 Icons.phone,
                 onTap: () => _launchURL(context, 'tel:+966565532971'),
               ),
               SizedBox(width: 8.w),
               _ContactButton(
-                'WhatsApp',
+                S.of(context).whatsapp,
                 Icons.chat,
                 onTap: () => _launchURL(context, 'https://wa.me/966565532971'),
               ),
@@ -218,10 +219,10 @@ class _TopFooter extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8.h),
-          const Center(
+          Center(
             child: Text(
-              'Certified on the Business Platform',
-              style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+              S.of(context).certifiedPlatform,
+              style: const TextStyle(color: textColor, fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -455,7 +456,7 @@ Future<void> _launchURL(BuildContext context, String urlString) async {
     }
     if (!launched && context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not open link: $urlString')),
+        SnackBar(content: Text('${S.of(context).couldNotOpenLink} $urlString')),
       );
     }
   } catch (e) {
@@ -465,7 +466,7 @@ Future<void> _launchURL(BuildContext context, String urlString) async {
         SnackBar(
           content: Text(
             e.toString().contains('MissingPluginException')
-                ? 'Please restart the app completely (stop and run again) to load the new url_launcher package!'
+                ? S.of(context).restartAppUrlLauncher
                 : 'Error: $e',
           ),
           duration: const Duration(seconds: 5),

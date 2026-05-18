@@ -2,6 +2,7 @@ import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/cart_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CartHeader extends StatelessWidget {
   const CartHeader({super.key});
@@ -15,7 +16,7 @@ class CartHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Shopping Cart',
+            S.of(context).shoppingCart,
             style: TextStyle(
               fontSize: 24.sp,
               fontWeight: FontWeight.bold,
@@ -23,7 +24,7 @@ class CartHeader extends StatelessWidget {
             ),
           ),
           Text(
-            '${CartManager.instance.totalItems} items',
+            '${CartManager.instance.totalItems} ${S.of(context).items}',
             style: TextStyle(
               fontSize: 14.sp,
               color: Colors.grey.shade600,

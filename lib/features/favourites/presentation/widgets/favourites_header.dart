@@ -2,6 +2,7 @@ import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/favourites_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class FavouritesHeader extends StatelessWidget {
   final bool isGridView;
@@ -26,7 +27,7 @@ class FavouritesHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'My Wishlist',
+                S.of(context).myWishlist,
                 style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
@@ -37,7 +38,7 @@ class FavouritesHeader extends StatelessWidget {
                 listenable: FavouritesManager.instance,
                 builder: (context, _) {
                   return Text(
-                    '${FavouritesManager.instance.totalItems} items saved',
+                    '${FavouritesManager.instance.totalItems} ${S.of(context).itemsSaved}',
                     style: TextStyle(
                       fontSize: 14.sp,
                       color: Colors.grey.shade600,

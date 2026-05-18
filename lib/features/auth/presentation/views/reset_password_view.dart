@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_button.dart';
 import 'package:elmasa/core/utils/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ResetPasswordView extends StatefulWidget {
   const ResetPasswordView({super.key});
@@ -20,7 +21,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reset Password'),
+        title: Text(S.of(context).resetPasswordTitle),
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
@@ -41,7 +42,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                 ),
                 SizedBox(height: 30.h),
                 Text(
-                  'Set New Password',
+                  S.of(context).setNewPassword,
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
@@ -50,7 +51,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                 ),
                 SizedBox(height: 12.h),
                 Text(
-                  'Your new password must be different from previously used passwords.',
+                  S.of(context).resetPasswordSubtitle,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14.sp,
@@ -59,7 +60,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                 ),
                 SizedBox(height: 40.h),
                 CustomTextField(
-                  hintText: 'New Password',
+                  hintText: S.of(context).newPassword,
                   obscureText: !_isPasswordVisible,
                   suffixIcon: IconButton(
                     onPressed: () => setState(
@@ -74,7 +75,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                 ),
                 SizedBox(height: 20.h),
                 CustomTextField(
-                  hintText: 'Confirm New Password',
+                  hintText: S.of(context).confirmNewPassword,
                   obscureText: !_isConfirmVisible,
                   suffixIcon: IconButton(
                     onPressed: () =>
@@ -88,7 +89,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
                 ),
                 SizedBox(height: 40.h),
                 CustomButton(
-                  buttonName: 'Update Password',
+                  buttonName: S.of(context).updatePassword,
                   onPressed: () {
                     // After update, navigate back to login
                     Navigator.pushNamedAndRemoveUntil(

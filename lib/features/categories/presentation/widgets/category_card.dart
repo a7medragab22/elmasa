@@ -1,6 +1,7 @@
 import 'package:elmasa/features/categories/data/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CategoryCard extends StatelessWidget {
   final Category category;
@@ -97,7 +98,7 @@ class CategoryCard extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 child: Text(
-                  '${category.itemCount} items',
+                  '${category.itemCount} ${S.of(context).items}',
                   style: TextStyle(
                     fontSize: 12.sp,
                     color: Colors.grey.shade600,

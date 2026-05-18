@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class DeliveryServiceView extends StatelessWidget {
   const DeliveryServiceView({super.key});
@@ -29,7 +30,7 @@ class DeliveryServiceView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Home',
+                        S.of(context).home,
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 14.sp,
@@ -42,7 +43,7 @@ class DeliveryServiceView extends StatelessWidget {
                       size: 20.sp,
                     ),
                     Text(
-                      'Delivery Service',
+                      S.of(context).deliveryService,
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 14.sp,
@@ -78,7 +79,7 @@ class DeliveryServiceView extends StatelessWidget {
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'Delivery Service',
+                        S.of(context).deliveryService,
                         style: TextStyle(
                           color: const Color(0xFF1E293B),
                           fontSize: 28.sp,
@@ -119,7 +120,7 @@ class DeliveryServiceView extends StatelessWidget {
                       SizedBox(width: 16.w),
                       Expanded(
                         child: Text(
-                          "If the customer's address is outside the shipping company's delivery area, the shipment will be directed to the nearest branch of the company in the customer's area, where the customer can collect the shipment directly from the designated office.",
+                          S.of(context).deliveryOutsideAreaDesc,
                           style: TextStyle(
                             color: const Color(0xFF475569),
                             fontSize: 16.sp,
@@ -137,17 +138,17 @@ class DeliveryServiceView extends StatelessWidget {
                   topColor: const Color(0xFF10B981),
                   icon: Icons.inventory_2,
                   iconColor: const Color(0xFF10B981),
-                  title: 'Delivery duration within\nKingdom cities',
+                  title: S.of(context).localDeliveryDurationTitle,
                   titleColor: const Color(0xFFD4A373),
                   details: [
                     _DeliveryDetail(
                       icon: Icons.access_time,
-                      text: 'From 4 to 7 working days',
+                      text: S.of(context).localDeliveryTime,
                       iconColor: const Color(0xFF10B981),
                     ),
                     _DeliveryDetail(
                       icon: Icons.business,
-                      text: 'Shipping Companies: Aramex -\nSMSA',
+                      text: S.of(context).localShippingCompanies,
                       iconColor: const Color(0xFF10B981),
                     ),
                   ],
@@ -159,17 +160,17 @@ class DeliveryServiceView extends StatelessWidget {
                   topColor: const Color(0xFFF59E0B),
                   icon: Icons.flight_takeoff,
                   iconColor: const Color(0xFFF59E0B),
-                  title: 'International Delivery\nDuration',
+                  title: S.of(context).intlDeliveryDurationTitle,
                   titleColor: const Color(0xFFD4A373),
                   details: [
                     _DeliveryDetail(
                       icon: Icons.access_time,
-                      text: 'Takes 10 to 15 working days',
+                      text: S.of(context).intlDeliveryTime,
                       iconColor: const Color(0xFFF59E0B),
                     ),
                     _DeliveryDetail(
                       icon: Icons.business,
-                      text: 'Shipping Company: Aramex',
+                      text: S.of(context).intlShippingCompany,
                       iconColor: const Color(0xFFF59E0B),
                     ),
                   ],

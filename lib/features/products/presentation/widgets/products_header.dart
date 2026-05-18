@@ -1,6 +1,7 @@
 import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ProductsHeader extends StatelessWidget {
   final String title;
@@ -37,9 +38,9 @@ class ProductsHeader extends StatelessWidget {
               ElevatedButton.icon(
                 onPressed: onFilterTap,
                 icon: const Icon(Icons.tune, color: Colors.white, size: 18),
-                label: const Text(
-                  'Filter',
-                  style: TextStyle(
+                label: Text(
+                  S.of(context).filter,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -58,7 +59,7 @@ class ProductsHeader extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Sort by:',
+                S.of(context).sortBy,
                 style: TextStyle(
                   fontSize: 14.sp,
                   color: Colors.grey.shade600,
@@ -89,9 +90,13 @@ class ProductsHeader extends StatelessWidget {
                     ),
                     items: ['Newest First', 'Price: Low to High', 'Price: High to Low']
                         .map((String value) {
+                      String localizedValue = value;
+                      if (value == 'Newest First') localizedValue = S.of(context).newestFirst;
+                      if (value == 'Price: Low to High') localizedValue = S.of(context).priceLowToHigh;
+                      if (value == 'Price: High to Low') localizedValue = S.of(context).priceHighToLow;
                       return DropdownMenuItem<String>(
                         value: value,
-                        child: Text(value),
+                        child: Text(localizedValue),
                       );
                     }).toList(),
                     onChanged: onSortChanged,

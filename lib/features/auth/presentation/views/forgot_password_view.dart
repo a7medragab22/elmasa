@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_button.dart';
 import 'package:elmasa/core/utils/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ForgotPasswordView extends StatelessWidget {
   const ForgotPasswordView({super.key});
@@ -12,7 +13,7 @@ class ForgotPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Forgot Password'),
+        title: Text(S.of(context).forgotPasswordTitle),
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
@@ -33,7 +34,7 @@ class ForgotPasswordView extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 Text(
-                  'Forgot your password?',
+                  S.of(context).forgotPasswordQuestion,
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
@@ -42,7 +43,7 @@ class ForgotPasswordView extends StatelessWidget {
                 ),
                 SizedBox(height: 12.h),
                 Text(
-                  'Enter your email address to receive a password reset link.',
+                  S.of(context).forgotPasswordSubtitle,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14.sp,
@@ -50,13 +51,13 @@ class ForgotPasswordView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 40.h),
-                const CustomTextField(
-                  hintText: 'Email Address',
+                CustomTextField(
+                  hintText: S.of(context).emailAddress,
                   textInputType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: 30.h),
                 CustomButton(
-                  buttonName: 'Send Link',
+                  buttonName: S.of(context).sendLink,
                   onPressed: () {
                     // Navigate to Verification
                     Navigator.pushNamed(context, AppRouteNames.verification);
@@ -65,8 +66,8 @@ class ForgotPasswordView extends StatelessWidget {
                 SizedBox(height: 40.h), // Replaced Spacer with fixed gap
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text(
-                    'Back to Login',
+                  child: Text(
+                    S.of(context).backToLogin,
                     style: TextStyle(color: AppColors.primaryYellow),
                   ),
                 ),

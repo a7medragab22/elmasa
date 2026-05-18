@@ -7,6 +7,7 @@ import 'package:elmasa/features/favourites/presentation/widgets/wishlist_item_ca
 import 'package:elmasa/features/favourites/presentation/widgets/wishlist_item_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class FavouritesView extends StatefulWidget {
   const FavouritesView({super.key});
@@ -53,9 +54,9 @@ class _FavouritesViewState extends State<FavouritesView> {
   Widget _buildEmptyState(BuildContext context) {
     return CustomEmptyCard(
       icon: Icons.favorite_border,
-      title: 'Your wishlist is empty',
-      subtitle: 'Save items you love to find them later!',
-      buttonText: 'Explore Products',
+      title: S.of(context).yourWishlistIsEmpty,
+      subtitle: S.of(context).saveItemsYouLove,
+      buttonText: S.of(context).exploreProducts,
       onButtonPressed: () {
         Navigator.pushNamedAndRemoveUntil(
           context,

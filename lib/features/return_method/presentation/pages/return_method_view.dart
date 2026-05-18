@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ReturnMethodView extends StatelessWidget {
   const ReturnMethodView({super.key});
@@ -29,7 +30,7 @@ class ReturnMethodView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Home',
+                        S.of(context).home,
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 14.sp,
@@ -42,7 +43,7 @@ class ReturnMethodView extends StatelessWidget {
                       size: 20.sp,
                     ),
                     Text(
-                      'Return Method',
+                      S.of(context).returnMethod,
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 14.sp,
@@ -91,7 +92,7 @@ class ReturnMethodView extends StatelessWidget {
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'Return Method',
+                        S.of(context).returnMethod,
                         style: TextStyle(
                           color: const Color(0xFF1E293B),
                           fontSize: 24.sp,
@@ -106,7 +107,7 @@ class ReturnMethodView extends StatelessWidget {
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'Contact us via WhatsApp\n\nto start return',
+                        S.of(context).contactWhatsappToStartReturn,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: const Color(0xFF64748B),
@@ -129,7 +130,7 @@ class ReturnMethodView extends StatelessWidget {
                         ),
                         icon: const Icon(Icons.chat, color: Colors.white),
                         label: Text(
-                          'Contact Us',
+                          S.of(context).contactUs,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.sp,
@@ -159,7 +160,7 @@ class ReturnMethodView extends StatelessWidget {
                       ),
                       SizedBox(height: 12.h),
                       Text(
-                        'Our customer service team will respond and provide the shipping policy within 48 hours.',
+                        S.of(context).customerServiceResponse48Hours,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: const Color(0xFF475569),

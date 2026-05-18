@@ -1,6 +1,7 @@
 import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CheckoutTextField extends StatelessWidget {
   final String label;
@@ -68,7 +69,7 @@ class CheckoutTextField extends StatelessWidget {
           ),
           validator: (value) {
             if (isRequired) {
-              if (value == null || value.isEmpty) return 'This field is required';
+              if (value == null || value.isEmpty) return S.of(context).thisFieldIsRequired;
             }
             return null;
           },

@@ -5,6 +5,7 @@ import 'package:elmasa/features/checkout/presentation/widgets/checkout_summary_s
 import 'package:elmasa/features/checkout/presentation/widgets/checkout_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CheckoutView extends StatefulWidget {
   const CheckoutView({super.key});
@@ -28,7 +29,7 @@ class _CheckoutViewState extends State<CheckoutView> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          'Checkout',
+          S.of(context).checkout,
           style: TextStyle(
             color: Colors.black,
             fontSize: 18.sp,
@@ -50,34 +51,34 @@ class _CheckoutViewState extends State<CheckoutView> {
                   children: [
                     // Billing & Shipping Section
                     CheckoutSectionCard(
-                      title: 'Billing & Shipping Details',
+                      title: S.of(context).billingAndShippingDetails,
                       children: [
                         CheckoutTextField(
-                          label: 'Full Name',
-                          hint: 'Enter your full name',
+                          label: S.of(context).fullName,
+                          hint: S.of(context).enterYourFullName,
                         ),
                         SizedBox(height: 20.h),
                         CheckoutTextField(
-                          label: 'Phone Number',
-                          hint: '+966 XX XXX XXXX',
+                          label: S.of(context).phoneNumber,
+                          hint: S.of(context).phoneHint,
                           keyboardType: TextInputType.phone,
                         ),
                         SizedBox(height: 20.h),
                         CheckoutTextField(
-                          label: 'Email (Optional)',
-                          hint: 'your@email.com',
+                          label: S.of(context).emailOptional,
+                          hint: S.of(context).emailHint,
                           isRequired: false,
                           keyboardType: TextInputType.emailAddress,
                         ),
                         SizedBox(height: 20.h),
                         CheckoutTextField(
-                          label: 'City',
-                          hint: 'Riyadh, Jeddah, etc.',
+                          label: S.of(context).city,
+                          hint: S.of(context).cityHint,
                         ),
                         SizedBox(height: 20.h),
                         CheckoutTextField(
-                          label: 'Address',
-                          hint: 'Street, Building, Apartment',
+                          label: S.of(context).address,
+                          hint: S.of(context).addressHint,
                           maxLines: 2,
                         ),
                       ],

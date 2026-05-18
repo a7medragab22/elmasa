@@ -3,6 +3,7 @@ import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/cart_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CartSummarySection extends StatelessWidget {
   final bool isTablet;
@@ -29,18 +30,18 @@ class CartSummarySection extends StatelessWidget {
       child: Column(
         children: [
           _buildSummaryRow(
-            'Subtotal',
-            'SAR ${manager.subtotal.toStringAsFixed(2)}',
+            S.of(context).subtotal,
+            '${S.of(context).sar} ${manager.subtotal.toStringAsFixed(2)}',
           ),
           SizedBox(height: 10.h),
           _buildSummaryRow(
-            'VAT (15%)',
-            'SAR ${manager.vat.toStringAsFixed(2)}',
+            S.of(context).vat,
+            '${S.of(context).sar} ${manager.vat.toStringAsFixed(2)}',
           ),
           const Divider(height: 30),
           _buildSummaryRow(
-            'Total',
-            'SAR ${manager.total.toStringAsFixed(2)}',
+            S.of(context).total,
+            '${S.of(context).sar} ${manager.total.toStringAsFixed(2)}',
             isTotal: true,
           ),
           SizedBox(height: 24.h),
@@ -59,7 +60,7 @@ class CartSummarySection extends StatelessWidget {
                 elevation: 0,
               ),
               child: Text(
-                'Proceed to Checkout',
+                S.of(context).proceedToCheckout,
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
