@@ -1,5 +1,6 @@
 import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/features/products/data/models/product_model.dart';
+import 'package:elmasa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -42,7 +43,9 @@ class ProductDetailsInfo extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
                 decoration: BoxDecoration(
-                  color: product.isAvailable ? Colors.green.withValues(alpha: 0.1) : Colors.red.withValues(alpha: 0.1),
+                  color: product.isAvailable
+                      ? Colors.green.withValues(alpha: 0.1)
+                      : Colors.red.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: Row(
@@ -54,7 +57,9 @@ class ProductDetailsInfo extends StatelessWidget {
                     ),
                     SizedBox(width: 4.w),
                     Text(
-                      product.isAvailable ? 'Available' : 'Unavailable',
+                      product.isAvailable
+                          ? S.of(context).available
+                          : S.of(context).unavailable,
                       style: TextStyle(
                         color: product.isAvailable ? Colors.green : Colors.red,
                         fontSize: 12.sp,
@@ -71,7 +76,7 @@ class ProductDetailsInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                'SAR ${product.price.toInt()}',
+                '${product.price.toInt()} ${S.of(context).sar}',
                 style: TextStyle(
                   fontSize: 28.sp,
                   fontWeight: FontWeight.bold,
@@ -79,9 +84,9 @@ class ProductDetailsInfo extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 6.h, left: 8.w),
+                padding: EdgeInsets.only(bottom: 6.h, left: 8.w, right: 8.w),
                 child: Text(
-                  'Including VAT',
+                  S.of(context).includingVat,
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: Colors.grey.shade500,
@@ -92,7 +97,9 @@ class ProductDetailsInfo extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
           Text(
-            product.descriptionEn,
+            Localizations.localeOf(context).languageCode == 'ar'
+                ? product.descriptionAr
+                : product.descriptionEn,
             style: TextStyle(
               fontSize: 15.sp,
               color: Colors.grey.shade600,
@@ -101,7 +108,7 @@ class ProductDetailsInfo extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
           Text(
-            'Product Number',
+            S.of(context).productNumber,
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w600,

@@ -1,6 +1,9 @@
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:elmasa/core/cubit/locale_cubit.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -18,9 +21,9 @@ class CustomDrawer extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Menu",
-                    style: TextStyle(
+                  Text(
+                    S.of(context).menu,
+                    style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: AppColors.secondaryYellow,
@@ -46,8 +49,15 @@ class CustomDrawer extends StatelessWidget {
               child: ListView(
                 children: [
                   DrawerItem(
+                    icon: Icons.language,
+                    title: context.read<LocaleCubit>().state.languageCode == 'en' ? 'عربي' : 'English',
+                    onTap: () {
+                      context.read<LocaleCubit>().toggleLanguage();
+                    },
+                  ),
+                  DrawerItem(
                     icon: Icons.home_outlined,
-                    title: "Home",
+                    title: S.of(context).home,
                     onTap: () => Navigator.pushNamedAndRemoveUntil(
                       context,
                       AppRouteNames.home,
@@ -56,7 +66,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   DrawerItem(
                     icon: Icons.inventory_2_outlined,
-                    title: "Fabrics",
+                    title: S.of(context).fabrics,
                     onTap: () => Navigator.pushNamed(
                       context,
                       AppRouteNames.products,
@@ -65,7 +75,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   DrawerItem(
                     icon: Icons.checkroom_outlined,
-                    title: "Abayas",
+                    title: S.of(context).abayas,
                     onTap: () => Navigator.pushNamed(
                       context,
                       AppRouteNames.products,
@@ -74,7 +84,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   DrawerItem(
                     icon: Icons.checkroom,
-                    title: "Clothes",
+                    title: S.of(context).clothes,
                     onTap: () => Navigator.pushNamed(
                       context,
                       AppRouteNames.products,
@@ -83,7 +93,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   DrawerItem(
                     icon: Icons.inventory_2,
-                    title: "Leather",
+                    title: S.of(context).leather,
                     onTap: () => Navigator.pushNamed(
                       context,
                       AppRouteNames.products,
@@ -92,7 +102,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   DrawerItem(
                     icon: Icons.auto_awesome_outlined,
-                    title: "Giveaways",
+                    title: S.of(context).giveaways,
                     onTap: () => Navigator.pushNamed(
                       context,
                       AppRouteNames.products,
@@ -101,19 +111,19 @@ class CustomDrawer extends StatelessWidget {
                   ),
                   DrawerItem(
                     icon: Icons.mail_outline,
-                    title: "Contact Us",
+                    title: S.of(context).contactUs,
                     onTap: () =>
                         Navigator.pushNamed(context, AppRouteNames.contactUs),
                   ),
                   DrawerItem(
                     icon: Icons.app_registration,
-                    title: 'Register',
+                    title: S.of(context).register,
                     onTap: () =>
                         Navigator.pushNamed(context, AppRouteNames.signup),
                   ),
                   DrawerItem(
                     icon: Icons.login,
-                    title: 'Login',
+                    title: S.of(context).login,
                     onTap: () =>
                         Navigator.pushNamed(context, AppRouteNames.signin),
                   ),

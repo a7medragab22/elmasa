@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class LogInForm extends StatefulWidget {
   const LogInForm({super.key});
@@ -40,11 +41,11 @@ class _LogInFormState extends State<LogInForm> {
                       child: Column(
                         children: [
                           SizedBox(height: 40.h),
-                          CustomTextField(hintText: 'Email', controller: email),
+                          CustomTextField(hintText: S.of(context).emailAddress, controller: email),
                           SizedBox(height: 20.h),
                           CustomTextField(
                             controller: password,
-                            hintText: 'Password',
+                            hintText: S.of(context).password,
                             obscureText: !isPasswordVisible,
                             suffixIcon: IconButton(
                               onPressed: () {
@@ -70,8 +71,8 @@ class _LogInFormState extends State<LogInForm> {
                                 );
                               },
                               child: Text(
-                                'Forgot Password?',
-                                style: TextStyle(
+                                S.of(context).forgotPasswordQuestion,
+                                style: const TextStyle(
                                   decoration: TextDecoration.underline,
                                 ),
                               ),
@@ -79,7 +80,7 @@ class _LogInFormState extends State<LogInForm> {
                           ),
                           const Spacer(),
                           CustomButton(
-                            buttonName: 'Login',
+                            buttonName: S.of(context).login,
                             onPressed: () async {
                               if (formKey.currentState!.validate()) {
                                 await context.read<SigninCubit>().call(

@@ -10,6 +10,7 @@ import 'package:elmasa/features/auth/presentation/cubits/signup_cubit/signup_sta
 import 'package:elmasa/features/auth/presentation/widgets/auth_toggle_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class SigninView extends StatelessWidget {
   const SigninView({super.key, this.initialIndex = 0});
@@ -31,7 +32,7 @@ class SigninView extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        appBar: AppBar(title: Text('Sign In')),
+        appBar: AppBar(title: Text(S.of(context).signIn)),
         body: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: MultiBlocListener(
@@ -39,7 +40,7 @@ class SigninView extends StatelessWidget {
               BlocListener<SigninCubit, SigninState>(
                 listener: (context, state) {
                   if (state is SigninSuccessState) {
-                    showSnackBarWidget(context, 'Login successful');
+                    showSnackBarWidget(context, S.of(context).loginSuccessful);
                     Navigator.pushNamedAndRemoveUntil(
                       context,
                       AppRouteNames.home,
@@ -53,7 +54,7 @@ class SigninView extends StatelessWidget {
               BlocListener<SignupCubit, SignupState>(
                 listener: (context, state) {
                   if (state is SignupSuccessState) {
-                    showSnackBarWidget(context, 'Account created successfully');
+                    showSnackBarWidget(context, S.of(context).accountCreatedSuccessfully);
                     Navigator.pushNamedAndRemoveUntil(
                       context,
                       AppRouteNames.home,

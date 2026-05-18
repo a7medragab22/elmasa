@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class GiftPolicyView extends StatelessWidget {
   const GiftPolicyView({super.key});
@@ -29,7 +30,7 @@ class GiftPolicyView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Home',
+                        S.of(context).home,
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 14.sp,
@@ -42,7 +43,7 @@ class GiftPolicyView extends StatelessWidget {
                       size: 20.sp,
                     ),
                     Text(
-                      'Gift Policy',
+                      S.of(context).giftPolicy,
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 14.sp,
@@ -90,7 +91,7 @@ class GiftPolicyView extends StatelessWidget {
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'Gift Policy',
+                        S.of(context).giftPolicy,
                         style: TextStyle(
                           color: const Color(0xFF4A3B2C),
                           fontSize: 28.sp,
@@ -121,7 +122,7 @@ class GiftPolicyView extends StatelessWidget {
                                 SizedBox(width: 12.w),
                                 Expanded(
                                   child: Text(
-                                    'Terms and conditions for the winter gift offer:',
+                                    S.of(context).winterGiftTerms,
                                     style: TextStyle(
                                       color: const Color(0xFF4A3B2C),
                                       fontSize: 20.sp,
@@ -137,27 +138,27 @@ class GiftPolicyView extends StatelessWidget {
                               icon: Icons.check_circle,
                               iconColor: const Color(0xFF10B981),
                               text:
-                                  'Gifts are granted to all orders while stocks last.',
+                                  S.of(context).giftsWhileStocksLast,
                             ),
                             SizedBox(height: 16.h),
                             _buildListItem(
                               icon: Icons.replay, // reverse arrow
                               iconColor: const Color(0xFFF59E0B),
                               text:
-                                  'In case of order return, the included gift must be returned to complete the refund.',
+                                  S.of(context).returnGiftWithOrder,
                             ),
                             SizedBox(height: 16.h),
                             _buildListItem(
                               icon: Icons.local_offer, // tag
                               iconColor: const Color(0xFF3B82F6),
                               text:
-                                  'Orders up to 199 SAR: One free winter blouse.',
+                                  S.of(context).winterGiftTier1,
                             ),
                             SizedBox(height: 16.h),
                             _buildListItem(
                               icon: Icons.local_offer, // tag
                               iconColor: const Color(0xFFEF4444),
-                              text: 'Orders over 599 SAR: Two winter gifts.',
+                              text: S.of(context).winterGiftTier2,
                             ),
                           ],
                         ),
@@ -188,7 +189,7 @@ class GiftPolicyView extends StatelessWidget {
                                 SizedBox(width: 12.w),
                                 Expanded(
                                   child: Text(
-                                    'Terms and conditions for the accessory gift offer:',
+                                    S.of(context).accessoryGiftTerms,
                                     style: TextStyle(
                                       color: const Color(0xFF4A3B2C),
                                       fontSize: 20.sp,
@@ -204,14 +205,14 @@ class GiftPolicyView extends StatelessWidget {
                               icon: Icons.check_circle,
                               iconColor: const Color(0xFF10B981),
                               text:
-                                  'Gifts are granted to all orders while stocks last.',
+                                  S.of(context).giftsWhileStocksLast,
                             ),
                             SizedBox(height: 16.h),
                             _buildListItem(
                               icon: Icons.card_giftcard,
                               iconColor: const Color(0xFFF59E0B),
                               text:
-                                  'Orders up to 599 SAR: One free piece from Saad.',
+                                  S.of(context).accessoryGiftTier1,
                             ),
                             SizedBox(height: 16.h),
                             _buildListItem(
@@ -219,7 +220,7 @@ class GiftPolicyView extends StatelessWidget {
                                   .featured_play_list_rounded, // Double gift placeholder
                               iconColor: const Color(0xFFF59E0B),
                               text:
-                                  'Orders of 600 SAR and more: One free piece from Saad + Gift Accessory.',
+                                  S.of(context).accessoryGiftTier2,
                             ),
                           ],
                         ),

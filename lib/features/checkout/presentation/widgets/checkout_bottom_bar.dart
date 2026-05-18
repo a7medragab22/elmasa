@@ -3,6 +3,7 @@ import 'package:elmasa/core/utils/cart_manager.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CheckoutBottomBar extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -33,7 +34,7 @@ class CheckoutBottomBar extends StatelessWidget {
                 if (formKey.currentState!.validate()) {
                   CartManager.instance.clearCart();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Order placed successfully!')),
+                    SnackBar(content: Text(S.of(context).orderPlacedSuccessfully)),
                   );
                   Navigator.pushNamedAndRemoveUntil(context, AppRouteNames.home, (route) => false);
                 }
@@ -47,7 +48,7 @@ class CheckoutBottomBar extends StatelessWidget {
                 elevation: 0,
               ),
               child: Text(
-                'Place Order - SAR ${total.toStringAsFixed(2)}',
+                '${S.of(context).placeOrder} - ${S.of(context).sar} ${total.toStringAsFixed(2)}',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16.sp,

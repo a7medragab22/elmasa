@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -28,7 +29,7 @@ class _SignUpFormState extends State<SignUpForm> {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
         if (state is SignupSuccessState) {
-          showSnackBarWidget(context, 'Account created successfully');
+          showSnackBarWidget(context, S.of(context).accountCreatedSuccessfully);
           if (FirebaseAuth.instance.currentUser!.emailVerified) {
             Navigator.pushNamedAndRemoveUntil(
               context,
@@ -36,7 +37,7 @@ class _SignUpFormState extends State<SignUpForm> {
               (route) => false,
             );
           } else {
-            showSnackBarWidget(context, 'Please verify your email');
+            showSnackBarWidget(context, S.of(context).verifyEmail);
           }
         } else if (state is SignupFailureState) {
           showSnackBarWidget(context, state.errMessage);
@@ -57,28 +58,28 @@ class _SignUpFormState extends State<SignUpForm> {
                         children: [
                           SizedBox(height: 40.h),
                           CustomTextField(
-                            hintText: 'Name',
+                            hintText: S.of(context).name,
                             onSaved: (value) {
                               name = value;
                             },
                           ),
                           SizedBox(height: 16.h),
                           CustomTextField(
-                            hintText: 'Email',
+                            hintText: S.of(context).emailAddress,
                             onSaved: (value) {
                               email = value;
                             },
                           ),
                           SizedBox(height: 16.h),
                           CustomTextField(
-                            hintText: 'phone',
+                            hintText: S.of(context).phone,
                             onSaved: (value) {
                               email = value;
                             },
                           ),
                           SizedBox(height: 16.h),
                           CustomTextField(
-                            hintText: 'password',
+                            hintText: S.of(context).password,
                             obscureText: !isPasswordVisible,
                             onSaved: (value) {
                               email = value;
@@ -98,7 +99,7 @@ class _SignUpFormState extends State<SignUpForm> {
                           ),
                           SizedBox(height: 16.h),
                           CustomTextField(
-                            hintText: 'confirm password',
+                            hintText: S.of(context).confirmPassword,
                             obscureText: !isConfirmPasswordVisible,
                             onSaved: (value) {
                               password = value;
@@ -119,7 +120,7 @@ class _SignUpFormState extends State<SignUpForm> {
                           ),
                           const Spacer(),
                           CustomButton(
-                            buttonName: 'Create Account',
+                            buttonName: S.of(context).createAccount,
                             onPressed: () async {
                               if (formKey.currentState!.validate()) {
                                 formKey.currentState!.save();

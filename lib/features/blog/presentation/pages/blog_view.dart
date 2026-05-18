@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class BlogView extends StatelessWidget {
   const BlogView({super.key});
@@ -29,7 +30,7 @@ class BlogView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Home',
+                        S.of(context).home,
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 14.sp,
@@ -42,7 +43,7 @@ class BlogView extends StatelessWidget {
                       size: 20.sp,
                     ),
                     Text(
-                      'Blog',
+                      S.of(context).blog,
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 14.sp,
@@ -64,7 +65,7 @@ class BlogView extends StatelessWidget {
                       ),
                       SizedBox(height: 16.h),
                       Text(
-                        'No blog posts found at the moment',
+                        S.of(context).noBlogPostsFound,
                         style: TextStyle(
                           color: const Color(
                             0xFF4A6877,

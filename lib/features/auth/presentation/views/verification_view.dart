@@ -3,6 +3,7 @@ import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:elmasa/core/utils/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class VerificationView extends StatelessWidget {
   const VerificationView({super.key});
@@ -11,7 +12,7 @@ class VerificationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Verification'),
+        title: Text(S.of(context).verificationTitle),
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
@@ -32,7 +33,7 @@ class VerificationView extends StatelessWidget {
                 ),
                 SizedBox(height: 30.h),
                 Text(
-                  'Verify Your Email',
+                  S.of(context).verifyYourEmail,
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
@@ -41,7 +42,7 @@ class VerificationView extends StatelessWidget {
                 ),
                 SizedBox(height: 12.h),
                 Text(
-                  'Please enter the 4-digit code sent to your email address.',
+                  S.of(context).verificationSubtitle,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14.sp,
@@ -83,7 +84,7 @@ class VerificationView extends StatelessWidget {
                 ),
                 SizedBox(height: 40.h),
                 CustomButton(
-                  buttonName: 'Verify',
+                  buttonName: S.of(context).verify,
                   onPressed: () {
                     Navigator.pushNamed(context, AppRouteNames.resetPassword);
                   },
@@ -93,13 +94,13 @@ class VerificationView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Didn't receive code? ",
+                      S.of(context).didNotReceiveCode,
                       style: TextStyle(fontSize: 14.sp, color: Colors.grey),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
-                        'Resend',
+                      child: Text(
+                        S.of(context).resend,
                         style: TextStyle(
                           color: AppColors.primaryYellow,
                           fontWeight: FontWeight.bold,

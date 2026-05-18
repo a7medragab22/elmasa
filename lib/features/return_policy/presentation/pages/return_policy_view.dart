@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ReturnPolicyView extends StatelessWidget {
   const ReturnPolicyView({super.key});
@@ -29,7 +30,7 @@ class ReturnPolicyView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Home',
+                        S.of(context).home,
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 14.sp,
@@ -42,7 +43,7 @@ class ReturnPolicyView extends StatelessWidget {
                       size: 20.sp,
                     ),
                     Text(
-                      'Return Policy',
+                      S.of(context).returnPolicy,
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 14.sp,
@@ -56,7 +57,7 @@ class ReturnPolicyView extends StatelessWidget {
                 // Title
                 Center(
                   child: Text(
-                    'Return Policy',
+                    S.of(context).returnPolicy,
                     style: TextStyle(
                       color: const Color(0xFFD09C72),
                       fontSize: 24.sp,
@@ -81,7 +82,7 @@ class ReturnPolicyView extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Click this link\nto start the\nreturn\nprocess',
+                          S.of(context).clickLinkToStartReturn,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: const Color(0xFFD09C72),
@@ -119,7 +120,7 @@ class ReturnPolicyView extends StatelessWidget {
                       SizedBox(width: 8.w),
                       Expanded(
                         child: Text(
-                          'For a better shopping experience, we added new options:',
+                          S.of(context).newOptionsAdded,
                           style: TextStyle(
                             color: const Color(0xFF00566C),
                             fontSize: 14.sp,
@@ -134,29 +135,29 @@ class ReturnPolicyView extends StatelessWidget {
 
                 // Checklist
                 _buildChecklistItem(
-                  'When returning a product or the entire order, a return fee of 29 SAR will be deducted from the refund amount.',
+                  S.of(context).returnFeeDeduction,
                 ),
                 _buildChecklistItem(
-                  'You can return the product within 7 days of receipt.',
+                  S.of(context).returnWithin7Days,
                 ),
                 _buildChecklistItem(
-                  'No return or exchange for online orders at branches.',
+                  S.of(context).noReturnAtBranches,
                 ),
                 _buildChecklistItem(
-                  'Exchange of products purchased from the online store is not allowed.',
+                  S.of(context).noExchangeOnline,
                 ),
                 _buildChecklistItem(
-                  'The product must be in its original condition without damage.',
+                  S.of(context).originalConditionRequired,
                 ),
                 _buildChecklistItem(
-                  'The return policy applies to all products except accessories.',
+                  S.of(context).returnExceptAccessories,
                 ),
 
                 SizedBox(height: 32.h),
 
                 // Promotional Offer Return Terms
                 Text(
-                  'Promotional Offer\nReturn Terms &\nConditions',
+                  S.of(context).promoOfferReturnTerms,
                   style: TextStyle(
                     color: const Color(0xFFD09C72),
                     fontSize: 22.sp,
@@ -173,7 +174,7 @@ class ReturnPolicyView extends StatelessWidget {
                     SizedBox(width: 8.w),
                     Expanded(
                       child: Text(
-                        'All products included in the promotional offer must be returned in full.',
+                        S.of(context).promoOfferReturnFull,
                         style: TextStyle(
                           color: const Color(0xFF33576E),
                           fontSize: 14.sp,
@@ -187,7 +188,7 @@ class ReturnPolicyView extends StatelessWidget {
 
                 // Return Steps
                 Text(
-                  'Return Steps',
+                  S.of(context).returnSteps,
                   style: TextStyle(
                     color: const Color(0xFFD09C72),
                     fontSize: 22.sp,
@@ -198,13 +199,13 @@ class ReturnPolicyView extends StatelessWidget {
                 Container(height: 1.h, color: Colors.grey.shade300),
                 SizedBox(height: 16.h),
 
-                _buildStepCard(Icons.person, '1. Go to My Orders panel'),
+                _buildStepCard(Icons.person, S.of(context).returnStep1),
                 SizedBox(height: 16.h),
-                _buildStepCard(Icons.description, '2. Create Return Form'),
+                _buildStepCard(Icons.description, S.of(context).returnStep2),
                 SizedBox(height: 16.h),
                 _buildStepCard(
                   Icons.email,
-                  '3. The policy will be sent to your email within 48 hours',
+                  S.of(context).returnStep3,
                 ),
 
                 SizedBox(height: 32.h),
@@ -228,7 +229,7 @@ class ReturnPolicyView extends StatelessWidget {
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            'Notes',
+                            S.of(context).notes,
                             style: TextStyle(
                               color: const Color(0xFF5A4A11),
                               fontSize: 18.sp,
@@ -241,11 +242,11 @@ class ReturnPolicyView extends StatelessWidget {
                       Divider(color: const Color(0xFFDAC792), thickness: 1.h),
                       SizedBox(height: 8.h),
                       _buildNoteItem(
-                        'The order cannot be cancelled after confirmation.',
+                        S.of(context).noCancelAfterConfirm,
                       ),
                       SizedBox(height: 8.h),
                       _buildNoteItem(
-                        'The amount will be refunded within 14 working days.',
+                        S.of(context).refundWithin14Days,
                       ),
                     ],
                   ),

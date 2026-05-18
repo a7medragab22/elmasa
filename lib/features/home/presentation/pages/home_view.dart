@@ -13,6 +13,7 @@ import 'package:elmasa/features/home/presentation/widgets/custom_drawer_widget.d
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -28,12 +29,12 @@ class _HomeViewState extends State<HomeView> {
   final PageController _pageController = PageController();
   Timer? _timer;
 
-  final List<String> _supportTags = [
-    'Casual',
-    'Evening',
-    'Silk',
-    'Men',
-    'Bags',
+  List<String> get _supportTags => [
+    S.of(context).tagCasual,
+    S.of(context).tagEvening,
+    S.of(context).tagSilk,
+    S.of(context).tagMen,
+    S.of(context).tagBags,
   ];
 
   @override
@@ -95,20 +96,20 @@ class _HomeViewState extends State<HomeView> {
                     bannerCard(
                       context,
                       'https://picsum.photos/seed/b1/400/200',
-                      'For Sale',
-                      'Selected items',
+                      S.of(context).forSale,
+                      S.of(context).selectedItems,
                     ),
                     bannerCard(
                       context,
                       'https://picsum.photos/seed/b2/400/200',
-                      'Premium',
-                      'Luxury fabrics',
+                      S.of(context).premium,
+                      S.of(context).luxuryFabrics,
                     ),
                     bannerCard(
                       context,
                       'https://picsum.photos/seed/b3/400/200',
-                      'Discover',
-                      'New Arrivals',
+                      S.of(context).discover,
+                      S.of(context).newArrivals,
                     ),
                   ],
                 ),
@@ -133,11 +134,16 @@ class _HomeViewState extends State<HomeView> {
               SizedBox(height: 16.h),
               ...appCategories.map(
                 (cat) =>
-                    categoryCard(context, cat.titleEn, cat.tags, cat.imageUrl),
+                    categoryCard(
+                      context,
+                      Localizations.localeOf(context).languageCode == 'ar' ? cat.titleAr : cat.titleEn,
+                      cat.tags,
+                      cat.imageUrl,
+                    ),
               ),
               SizedBox(height: 16.h),
               Text(
-                'Support Tags',
+                S.of(context).supportTags,
                 style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 8.h),
@@ -173,7 +179,7 @@ class _HomeViewState extends State<HomeView> {
       const CategoriesView(),
       const CartView(),
       const FavouritesView(),
-      const Center(child: Text('Profile')),
+      Center(child: Text(S.of(context).profile)),
     ];
 
     return Scaffold(

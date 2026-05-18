@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:elmasa/core/themes/app_colors.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class PaymentOptionsCard extends StatelessWidget {
   final double price;
@@ -22,7 +23,7 @@ class PaymentOptionsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Flexible Payment Options',
+            S.of(context).flexiblePaymentOptions,
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,
@@ -32,15 +33,15 @@ class PaymentOptionsCard extends StatelessWidget {
           SizedBox(height: 16.h),
           _buildPaymentOption(
             'Tamara',
-            'Split in 4 payments',
-            '4 × SAR $splitPrice',
+            S.of(context).splitIn4Payments,
+            '${S.of(context).fourTimesSar} $splitPrice',
             'assets/images/tamara.png', // Placeholder or use icon
           ),
           SizedBox(height: 12.h),
           _buildPaymentOption(
             'Tabby',
-            'Buy now, pay later',
-            '0% interest',
+            S.of(context).buyNowPayLater,
+            S.of(context).zeroInterest,
             'assets/images/tabby.png',
           ),
         ],
@@ -107,9 +108,9 @@ class _ProductTabsSectionState extends State<ProductTabsSection> with SingleTick
           unselectedLabelColor: Colors.grey,
           indicatorColor: AppColors.primaryGreen,
           indicatorSize: TabBarIndicatorSize.tab,
-          tabs: const [
-            Tab(text: 'Product Details'),
-            Tab(text: 'Reviews'),
+          tabs: [
+            Tab(text: S.of(context).productDetailsTab),
+            Tab(text: S.of(context).reviews),
           ],
         ),
         SizedBox(
@@ -126,9 +127,43 @@ class _ProductTabsSectionState extends State<ProductTabsSection> with SingleTick
     );
   }
 
+String _getLocalizedDetailKey(BuildContext context, String key) {
+  switch (key.toLowerCase()) {
+    case 'material':
+      return S.of(context).detailMaterial;
+    case 'color':
+      return S.of(context).detailColor;
+    case 'size':
+      return S.of(context).detailSize;
+    case 'care':
+      return S.of(context).detailCare;
+    case 'origin':
+      return S.of(context).detailOrigin;
+    default:
+      return key;
+  }
+}
+
+String _getLocalizedDetailValue(BuildContext context, String value) {
+  switch (value.toLowerCase()) {
+    case 'premium cotton blend':
+      return S.of(context).valPremiumCottonBlend;
+    case 'black with gold embroidery':
+      return S.of(context).valBlackGoldEmbroidery;
+    case 'one size (adjustable)':
+      return S.of(context).valOneSizeAdjustable;
+    case 'hand wash only':
+      return S.of(context).valHandWashOnly;
+    case 'made in saudi arabia':
+      return S.of(context).valMadeInKsa;
+    default:
+      return value;
+  }
+}
+
   Widget _buildDetailsTab() {
     if (widget.details.isEmpty) {
-      return const Center(child: Text('No details available'));
+      return Center(child: Text(S.of(context).noDetailsAvailable));
     }
     return Padding(
       padding: EdgeInsets.all(20.w),
@@ -139,8 +174,8 @@ class _ProductTabsSectionState extends State<ProductTabsSection> with SingleTick
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(entry.key, style: TextStyle(fontSize: 14.sp, color: Colors.grey.shade600)),
-                Text(entry.value, style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold)),
+                Text(_getLocalizedDetailKey(context, entry.key), style: TextStyle(fontSize: 14.sp, color: Colors.grey.shade600)),
+                Text(_getLocalizedDetailValue(context, entry.value), style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold)),
               ],
             ),
           );
@@ -156,11 +191,11 @@ class _ProductTabsSectionState extends State<ProductTabsSection> with SingleTick
         Icon(Icons.rate_review_outlined, size: 64.sp, color: Colors.grey.shade300),
         SizedBox(height: 16.h),
         Text(
-          'No reviews yet',
+          S.of(context).noReviewsYet,
           style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.grey.shade600),
         ),
         Text(
-          'Be the first to review this product',
+          S.of(context).beTheFirstToReview,
           style: TextStyle(fontSize: 14.sp, color: Colors.grey.shade400),
         ),
       ],

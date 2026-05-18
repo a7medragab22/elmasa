@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/favourites_manager.dart';
 import 'package:elmasa/features/products/data/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class WishlistItemList extends StatelessWidget {
   final Product product;
@@ -53,7 +54,7 @@ class WishlistItemList extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'SAR ${product.price.toInt()}',
+                  '${S.of(context).sar} ${product.price.toInt()}',
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.bold,
