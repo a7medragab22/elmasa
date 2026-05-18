@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:elmasa/features/products/data/models/product_model.dart';
 import 'package:elmasa/core/utils/widgets/custom_empty_card.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ProductsView extends StatefulWidget {
   final String? tag;
@@ -63,7 +64,7 @@ class _ProductsViewState extends State<ProductsView> {
         child: Column(
           children: [
             ProductsHeader(
-              title: widget.tag ?? 'Products',
+              title: widget.tag ?? S.of(context).productsTitle,
               selectedSort: selectedSort,
               onFilterTap: () => _scaffoldKey.currentState?.openEndDrawer(),
               onSortChanged: (newValue) {
@@ -78,9 +79,9 @@ class _ProductsViewState extends State<ProductsView> {
                   ? Center(
                       child: CustomEmptyCard(
                         icon: Icons.inventory_2_outlined,
-                        title: "No products found",
-                        subtitle: "Try adjusting your filters",
-                        buttonText: "Reset Filters",
+                        title: S.of(context).noProductsFound,
+                        subtitle: S.of(context).tryAdjustingFilters,
+                        buttonText: S.of(context).resetFilters,
                         onButtonPressed: () {
                           setState(() {
                             _minPriceController.text = '0';

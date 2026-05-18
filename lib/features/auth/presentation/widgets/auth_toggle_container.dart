@@ -3,6 +3,7 @@ import 'package:elmasa/features/auth/presentation/widgets/log_in_form.dart';
 import 'package:elmasa/features/auth/presentation/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class AuthToggleContainer extends StatefulWidget {
   const AuthToggleContainer({super.key, this.initialIndex = 0});
@@ -114,7 +115,7 @@ class _AuthToggleContainerState extends State<AuthToggleContainer> {
                                       ? Colors.white
                                       : Colors.grey.shade600,
                                 ),
-                                child: const Text('Log in'),
+                                child: Text(S.of(context).signIn),
                               ),
                             ),
                           ),
@@ -135,7 +136,7 @@ class _AuthToggleContainerState extends State<AuthToggleContainer> {
                                       ? Colors.white
                                       : Colors.grey.shade600,
                                 ),
-                                child: const Text('Create Account'),
+                                child: Text(S.of(context).createAccount),
                               ),
                             ),
                           ),

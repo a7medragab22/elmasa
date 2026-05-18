@@ -4,6 +4,7 @@ import 'package:elmasa/core/utils/widgets/custom_app_bar.dart';
 import 'package:elmasa/core/utils/widgets/main_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class SadVipPointsView extends StatelessWidget {
   const SadVipPointsView({super.key});
@@ -29,7 +30,7 @@ class SadVipPointsView extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        'Home',
+                        S.of(context).home,
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 14.sp,
@@ -42,7 +43,7 @@ class SadVipPointsView extends StatelessWidget {
                       size: 20.sp,
                     ),
                     Text(
-                      'Sad VIP Points',
+                      S.of(context).sadVipPoints,
                       style: TextStyle(
                         color: Colors.black87,
                         fontSize: 14.sp,
@@ -78,7 +79,7 @@ class SadVipPointsView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Sad VIP\nPoints',
+                            S.of(context).sadVipPointsTitle,
                             style: TextStyle(
                               color: const Color(0xFF1E293B),
                               fontSize: 32.sp,
@@ -88,7 +89,7 @@ class SadVipPointsView extends StatelessWidget {
                           ),
                           SizedBox(height: 24.h),
                           Text(
-                            'Collect points with every order and redeem them as a discount on your next purchases easily — shop starting from 1 SAR',
+                            S.of(context).collectPointsDesc,
                             style: TextStyle(
                               color: const Color(0xFF64748B),
                               fontSize: 16.sp,
@@ -97,7 +98,7 @@ class SadVipPointsView extends StatelessWidget {
                           ),
                           SizedBox(height: 16.h),
                           Text(
-                            'You earn 1 point. To benefit from rewards and discounts, you must have 500 points or more in your account',
+                            S.of(context).earn1PointDesc,
                             style: TextStyle(
                               color: const Color(0xFF64748B),
                               fontSize: 16.sp,
@@ -106,7 +107,7 @@ class SadVipPointsView extends StatelessWidget {
                           ),
                           SizedBox(height: 16.h),
                           Text(
-                            '500 points = 50 SAR discount, 1000 points = 100 SAR discount',
+                            S.of(context).pointsToDiscountDesc,
                             style: TextStyle(
                               color: const Color(0xFF64748B),
                               fontSize: 16.sp,
@@ -130,7 +131,7 @@ class SadVipPointsView extends StatelessWidget {
                                 ),
                               ),
                               child: Text(
-                                'Receive Points',
+                                S.of(context).receivePoints,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18.sp,
@@ -166,7 +167,7 @@ class SadVipPointsView extends StatelessWidget {
                 // Ways to Earn Points Section
                 Center(
                   child: Text(
-                    'Ways to Earn Points',
+                    S.of(context).waysToEarnPoints,
                     style: TextStyle(
                       color: const Color(0xFF1E293B),
                       fontSize: 28.sp,
@@ -176,24 +177,24 @@ class SadVipPointsView extends StatelessWidget {
                 ),
                 SizedBox(height: 24.h),
                 _buildEarnPointCard(
-                  points: '1 Point',
-                  title: 'Shop Now',
-                  buttonText: 'Order from Store',
+                  points: S.of(context).onePoint,
+                  title: S.of(context).shopNow,
+                  buttonText: S.of(context).orderFromStore,
                 ),
                 SizedBox(height: 16.h),
                 _buildEarnPointCard(
-                  points: '100 Points',
-                  title: 'Rate Your Order',
-                  buttonText: 'Rate Order',
+                  points: S.of(context).hundredPoints,
+                  title: S.of(context).rateYourOrder,
+                  buttonText: S.of(context).rateOrderBtn,
                 ),
                 SizedBox(height: 16.h),
-                _buildInviteCard(),
+                _buildInviteCard(context),
                 SizedBox(height: 48.h),
 
                 // Discounts Section
                 Center(
                   child: Text(
-                    'Discounts',
+                    S.of(context).discounts,
                     style: TextStyle(
                       color: const Color(0xFF1E293B),
                       fontSize: 28.sp,
@@ -202,9 +203,9 @@ class SadVipPointsView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 24.h),
-                _buildDiscountCard(points: '1000 Points', discount: '100 SAR'),
+                _buildDiscountCard(context, points: S.of(context).thousandPoints, discount: S.of(context).hundredSar),
                 SizedBox(height: 16.h),
-                _buildDiscountCard(points: '500 Points', discount: '50 SAR'),
+                _buildDiscountCard(context, points: S.of(context).fiveHundredPoints, discount: S.of(context).fiftySar),
                 SizedBox(height: 48.h),
               ],
             ),
@@ -306,7 +307,7 @@ class SadVipPointsView extends StatelessWidget {
     );
   }
 
-  Widget _buildInviteCard() {
+  Widget _buildInviteCard(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(24.w),
@@ -330,7 +331,7 @@ class SadVipPointsView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '25 Points',
+                    S.of(context).twentyFivePoints,
                     style: TextStyle(
                       color: const Color(0xFF1E293B),
                       fontSize: 24.sp,
@@ -339,7 +340,7 @@ class SadVipPointsView extends StatelessWidget {
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    'Invite Your Friends',
+                    S.of(context).inviteFriends,
                     style: TextStyle(
                       color: const Color(0xFF64748B),
                       fontSize: 14.sp,
@@ -407,7 +408,8 @@ class SadVipPointsView extends StatelessWidget {
     );
   }
 
-  Widget _buildDiscountCard({
+  Widget _buildDiscountCard(
+    BuildContext context, {
     required String points,
     required String discount,
   }) {
@@ -428,7 +430,7 @@ class SadVipPointsView extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'صاد',
+            S.of(context).saadBrandAr,
             style: TextStyle(
               color: const Color(0xFF1E293B),
               fontSize: 48.sp,
@@ -436,7 +438,7 @@ class SadVipPointsView extends StatelessWidget {
             ),
           ),
           Text(
-            'SAAD',
+            S.of(context).saadBrandEn,
             style: TextStyle(
               color: const Color(0xFF1E293B),
               fontSize: 48.sp,
@@ -445,7 +447,7 @@ class SadVipPointsView extends StatelessWidget {
           ),
           SizedBox(height: 24.h),
           Text(
-            '$discount Discount Coupon',
+            S.of(context).discountCouponStr(discount),
             style: TextStyle(
               color: const Color(0xFF1E293B),
               fontSize: 18.sp,
@@ -454,7 +456,7 @@ class SadVipPointsView extends StatelessWidget {
           ),
           SizedBox(height: 8.h),
           Text(
-            'SAR${discount.split(' ')[0]} Discount Code',
+            S.of(context).discountCodeStr(discount.split(' ')[0]),
             style: TextStyle(color: const Color(0xFF94A3B8), fontSize: 14.sp),
           ),
           SizedBox(height: 24.h),

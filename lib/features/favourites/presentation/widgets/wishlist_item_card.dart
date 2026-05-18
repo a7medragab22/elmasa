@@ -5,6 +5,7 @@ import 'package:elmasa/features/products/data/models/product_model.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class WishlistItemCard extends StatelessWidget {
   final Product product;
@@ -66,7 +67,7 @@ class WishlistItemCard extends StatelessWidget {
                     ),
                     SizedBox(height: 4.h),
                     Text(
-                      'SAR ${product.price.toInt()}',
+                      '${S.of(context).sar} ${product.price.toInt()}',
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
@@ -141,7 +142,7 @@ class WishlistItemCard extends StatelessWidget {
                                 Icon(Icons.add_shopping_cart, color: Colors.white, size: 16.sp),
                                 SizedBox(width: 8.w),
                                 Text(
-                                  'Add to Cart',
+                                  S.of(context).addToCart,
                                   style: TextStyle(fontSize: 12.sp, color: Colors.white),
                                 ),
                               ],

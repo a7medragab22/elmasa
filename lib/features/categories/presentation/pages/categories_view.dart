@@ -3,6 +3,7 @@ import 'package:elmasa/features/categories/data/models/category_model.dart';
 import 'package:elmasa/features/categories/presentation/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CategoriesView extends StatelessWidget {
   const CategoriesView({super.key});
@@ -22,7 +23,7 @@ class CategoriesView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'All Categories',
+                  S.of(context).allCategories,
                   style: TextStyle(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
@@ -30,7 +31,7 @@ class CategoriesView extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Browse our collections',
+                  S.of(context).browseOurCollections,
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: Colors.grey.shade500,

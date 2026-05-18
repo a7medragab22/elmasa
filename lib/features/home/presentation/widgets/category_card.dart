@@ -1,6 +1,44 @@
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
+
+String _getLocalizedTag(BuildContext context, String tag) {
+  switch (tag.toLowerCase()) {
+    case 'casual':
+      return S.of(context).tagCasual;
+    case 'evening':
+      return S.of(context).tagEvening;
+    case 'silk':
+      return S.of(context).tagSilk;
+    case 'men':
+      return S.of(context).tagMen;
+    case 'bags':
+      return S.of(context).tagBags;
+    case 'cotton':
+      return S.of(context).tagCotton;
+    case 'wool':
+      return S.of(context).tagWool;
+    case 'women':
+      return S.of(context).tagWomen;
+    case 'kids':
+      return S.of(context).tagKids;
+    case 'wallets':
+      return S.of(context).tagWallets;
+    case 'accessories':
+      return S.of(context).tagAccessories;
+    case 'umrah':
+      return S.of(context).tagUmrah;
+    case 'active':
+      return S.of(context).tagActive;
+    case 'past':
+      return S.of(context).tagPast;
+    case 'upcoming':
+      return S.of(context).tagUpcoming;
+    default:
+      return tag;
+  }
+}
 
 Widget categoryCard(BuildContext context, String title, List<String> tags, String image) {
   return InkWell(
@@ -46,7 +84,7 @@ Widget categoryCard(BuildContext context, String title, List<String> tags, Strin
             child: Wrap(
               spacing: 8.w,
               children: tags.map((t) => ActionChip(
-                label: Text(t),
+                label: Text(_getLocalizedTag(context, t)),
                 onPressed: () {
                   Navigator.pushNamed(
                     context,

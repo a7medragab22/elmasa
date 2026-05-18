@@ -1,6 +1,7 @@
 import 'package:elmasa/core/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ProductFilterDrawer extends StatefulWidget {
   final TextEditingController minPriceController;
@@ -44,7 +45,7 @@ class _ProductFilterDrawerState extends State<ProductFilterDrawer> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Filters',
+                    S.of(context).filters,
                     style: TextStyle(
                       fontSize: 22.sp,
                       fontWeight: FontWeight.bold,
@@ -59,7 +60,7 @@ class _ProductFilterDrawerState extends State<ProductFilterDrawer> {
               ),
               SizedBox(height: 32.h),
               Text(
-                'Price Range',
+                S.of(context).priceRange,
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
@@ -73,7 +74,7 @@ class _ProductFilterDrawerState extends State<ProductFilterDrawer> {
                     child: TextField(
                       controller: widget.minPriceController,
                       decoration: InputDecoration(
-                        labelText: 'Min',
+                        labelText: S.of(context).min,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.r),
                         ),
@@ -87,7 +88,7 @@ class _ProductFilterDrawerState extends State<ProductFilterDrawer> {
                     child: TextField(
                       controller: widget.maxPriceController,
                       decoration: InputDecoration(
-                        labelText: 'Max',
+                        labelText: S.of(context).max,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.r),
                         ),
@@ -100,7 +101,7 @@ class _ProductFilterDrawerState extends State<ProductFilterDrawer> {
               ),
               SizedBox(height: 32.h),
               Text(
-                'Rating',
+                S.of(context).rating,
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.bold,
@@ -144,7 +145,7 @@ class _ProductFilterDrawerState extends State<ProductFilterDrawer> {
                           ),
                           SizedBox(width: 8.w),
                           Text(
-                            rating == 5 ? 'Only' : '& Up',
+                            rating == 5 ? S.of(context).only : S.of(context).andUp,
                             style: TextStyle(
                               fontSize: 14.sp,
                               color: Colors.grey,
@@ -172,7 +173,7 @@ class _ProductFilterDrawerState extends State<ProductFilterDrawer> {
                     ),
                   ),
                   child: Text(
-                    'Apply Filters',
+                    S.of(context).applyFilters,
                     style: TextStyle(
                       color: AppColors.primaryDarkGreen,
                       fontSize: 16.sp,

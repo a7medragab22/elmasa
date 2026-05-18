@@ -4,6 +4,7 @@ import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:elmasa/features/products/data/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class CartItemCard extends StatelessWidget {
   final CartItem item;
@@ -72,7 +73,7 @@ class CartItemCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Premium Collection',
+                  S.of(context).premiumCollection,
                   style: TextStyle(
                     fontSize: 12.sp,
                     color: Colors.grey.shade500,
@@ -80,7 +81,7 @@ class CartItemCard extends StatelessWidget {
                 ),
                 SizedBox(height: 8.h),
                 Text(
-                  'SAR ${item.price.toInt()}',
+                  '${S.of(context).sar} ${item.price.toInt()}',
                   style: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold,

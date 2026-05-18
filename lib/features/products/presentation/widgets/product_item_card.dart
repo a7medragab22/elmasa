@@ -5,6 +5,7 @@ import 'package:elmasa/features/products/data/models/product_model.dart';
 import 'package:elmasa/core/routes/app_routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:elmasa/generated/l10n.dart';
 
 class ProductItemCard extends StatelessWidget {
   final Product product;
@@ -83,7 +84,7 @@ class ProductItemCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(4.r),
                         ),
                         child: Text(
-                          'NEW',
+                          S.of(context).newBadge,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 10.sp,
@@ -134,7 +135,7 @@ class ProductItemCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'SAR ${product.price.toInt()}',
+                        '${S.of(context).sar} ${product.price.toInt()}',
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.bold,
@@ -213,7 +214,7 @@ class ProductItemCard extends StatelessWidget {
                                   Icon(Icons.add_shopping_cart, color: AppColors.primaryGreen, size: 16.sp),
                                   SizedBox(width: 6.w),
                                   Text(
-                                    'Add',
+                                    S.of(context).add,
                                     style: TextStyle(
                                       color: AppColors.primaryGreen,
                                       fontSize: 13.sp,
